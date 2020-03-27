@@ -1,0 +1,23 @@
+{%extends "Homebase.html"%}
+{% block title %} {{setting.title}} {% endblock %}
+{% block keywords %} {{setting.key}} {% endblock %}
+{% block description %} {{setting.description}}{% endblock %}
+{% block head %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{setting.icon.url}}">
+{% endblock %}
+
+{% block slider %}
+    {% include 'slider.html' %}
+{% endblock %}
+
+{% block cararea %}
+    {% include 'cararea.html' %}
+{% endblock %}
+
+{% block choosecar %}
+    {% include 'choosecar.html' %}
+{% endblock %}
+
+{% block body %}
+    {% include 'content.html' %}
+{% endblock %}
