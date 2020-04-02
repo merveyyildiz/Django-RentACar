@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
 # Create your models here.
@@ -40,7 +41,7 @@ class Car(models.Model):
     image = models.ImageField(blank=True, upload_to='images/')  # images klasörüne kaydet
     price = models.FloatField()
     amount = models.IntegerField()
-    detail = models.TextField()
+    detail = RichTextUploadingField()
     status = models.CharField(max_length=10, choices=STATUS)
     create_at = models.DateTimeField(auto_now_add=True)
     update_At = models.DateTimeField(auto_now=True)
