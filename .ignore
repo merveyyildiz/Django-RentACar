@@ -1,0 +1,2 @@
+$cat .gitignore
+#exculude everything except directory foo/bar
