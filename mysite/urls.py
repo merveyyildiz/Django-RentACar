@@ -18,9 +18,14 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
+from home import views
+
 urlpatterns = [
     path("", include("home.urls")),
     path("home/", include("home.urls")),
+    path('hakkimizda/', views.hakkimizda, name='hakkimizda'),
+    path('referanslar/', views.referanslarimiz, name='referanslarimiz'),
+    path('iletisim/', views.iletisim, name='iletisim'),
     path("product/", include("product.urls")),
     path('admin/', admin.site.urls),  # admin şifre merve
     path('^ckeditor/', include('ckeditor_uploader.urls')),

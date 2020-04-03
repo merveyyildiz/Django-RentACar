@@ -42,12 +42,12 @@
     <![endif]-->
 </head>
 <body>
-    {% include 'header.html' %}
-    {% block slider %} {% endblock %}
-    {% block cararea %} {% endblock %}
-    {% block choosecar %} {% endblock %}
-    {% block body %} {% endblock %}
-    {% include 'footer.html' %}
+    {% include 'header.html' %} <!-- her sayfada olucak-->
+    {% block slider %} {% endblock %} <!-- istenilen sayfada olucak-->
+    {% block cararea %} {% endblock %} <!-- istenilen sayfada olucak-->
+    {% block choosecar %} {% endblock %} <!-- istenilen sayfada olucak-->
+    {% block body %} {% endblock %} <!-- istenilen sayfada olucak-->
+    {% include 'footer.html' %}  <!-- her sayfada olucak-->
     {% block foot %} {% endblock %}
 
 
