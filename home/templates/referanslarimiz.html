@@ -1,4 +1,4 @@
-{%extends "Homebase.html"%}
+{%extends "homebase.html"%}
 {% block title %} {{setting.title}} {% endblock %}
 {% block keywords %} {{setting.key}} {% endblock %}
 {% block description %} {{setting.description}}{% endblock %}
@@ -8,11 +8,19 @@
 
 {% block body %}
  {% load static %}
-    <div style="background-image: url('{% static 'img/page-title.jpg'%}');background-position: center center;
-	background-size: cover;padding-top: 20px;">
- <section id="page-title-area" class="section-padding overlay">
+    <div>
+         <div class="col-lg-8 d-none d-xl-block" style="margin-top:140px">
+                        <nav class="mainmenu ">
+                            <ul>
+                                <li><a href="/">Anasayfa</a></li>
+                                <li class="active"><a href="/iletisim" style="color:#ffd000">/REFERANSLARIMIZ</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+    </div>
 
-        <div class="container">
+<section id="about-area" class="section-padding" >
+     <div class="container">
             <div class="row">
                 <!-- Page Title Start -->
                 <div class="col-lg-12">
@@ -25,10 +33,6 @@
                 <!-- Page Title End -->
             </div>
         </div>
-
-    </section>    </div>
-
-<section id="about-area" class="section-padding" >
         <div class="container">
 
 
