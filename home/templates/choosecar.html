@@ -63,12 +63,12 @@
              <li >
               {% recursetree category %}
                 <li >
-                    <a href="/category/{{ node.slug }}">
+                    <a href="/category/{{ node.id }}/{{ node.slug }}">
                      {{ node.title }}</a>
                      {% if not node.is_leaf_node %}
                        <ul class="altmenu">
                      <li>
-                         <a href="/category/{{ node.slug }}"> {{ children }}</a>
+                         <a href="/category/{{ node.id }}/{{ node.slug }}"> {{ children }}</a>
                           </li>
                           </ul>
                      {% endif %}
@@ -103,7 +103,7 @@
                                                 <h5> {{rs.title}}</h5>
 
                                                 <div class="p-car-feature">
-                                                    <p>{{ rs.detail }}</p>
+                                                    <p>{{ rs.detail |safe}}</p>
                                                 </div>
                                             </div>
                                         </div>

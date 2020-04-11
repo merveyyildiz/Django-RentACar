@@ -7,28 +7,29 @@ from home.models import Setting, ContactFormu, ContactFormMessage
 from product.models import Car, Category
 
 
-def index(request): #home daki urls.py den çağrılıyor
+def index(request):  # home daki urls.py den çağrılıyor
     setting = Setting.objects.get(pk=1)
-    sliderdata = Car.objects.all()[:4]# ilk dört veriyi al
-    category = Category.objects.all() #tüm kategor alıyruz
-    context = {'setting': setting, 'page': 'home', 'sliderdata': sliderdata, 'category':category} #içeriğe yükleyeceğimiz veriler
+    sliderdata = Car.objects.all()[:4]  # ilk dört veriyi al
+    category = Category.objects.all()  # tüm kategor alıyruz
+    context = {'setting': setting, 'page': 'home', 'sliderdata': sliderdata,
+               'category': category}  # içeriğe yükleyeceğimiz veriler
     return render(request, 'index.html', context)
 
 
-def hakkimizda(request):#ana urls.py den çağırılıyor
+def hakkimizda(request):  # ana urls.py den çağırılıyor
     setting = Setting.objects.get(pk=1)
     context = {'setting': setting}
     return render(request, 'hakkimizda.html', context)
 
 
-def referanslarimiz(request):#ana urls.py den çağırılıyor
+def referanslarimiz(request):  # ana urls.py den çağırılıyor
     setting = Setting.objects.get(pk=1)
     context = {'setting': setting}
     return render(request, 'referanslarimiz.html', context)
 
 
-def iletisim(request): #ana urls.py den çağırılıyor
-    #kaydetme şekli
+def iletisim(request):  # ana urls.py den çağırılıyor
+    # kaydetme şekli
     if request.method == 'POST':  # form post edildiyse
         form = ContactFormu(request.POST)
         if form.is_valid():  # form geçerli ise
@@ -41,8 +42,16 @@ def iletisim(request): #ana urls.py den çağırılıyor
             data.save()  # veritabanına kaydet
             messages.success(request, "Mesajınız başarı ile gönderilmişitir.")
             return HttpResponseRedirect('/iletisim')
-        #bu kısım forma ulaşmak için
+        # bu kısım forma ulaşmak için
     setting = Setting.objects.get(pk=1)
     form = ContactFormu
     context = {'setting': setting, 'form': form}  # setting ve form iletişim sayfasına göndereceğiz
     return render(request, 'iletisim.html', context)
+
+
+def category_products(request, id, slug):
+    category = Category.objects.all()
+    categorydata = Category.objects.get(pk=id)
+    products = Car.objects.filter(category_id=id)
+    context = {'products': products, 'category': category,'categorydata': categorydata}
+    return render(request, 'car.html', context)
