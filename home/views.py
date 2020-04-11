@@ -4,12 +4,14 @@ from django.shortcuts import render
 
 # Create your views here.
 from home.models import Setting, ContactFormu, ContactFormMessage
-from product.models import Car
+from product.models import Car, Category
+
 
 def index(request): #home daki urls.py den çağrılıyor
     setting = Setting.objects.get(pk=1)
     sliderdata = Car.objects.all()[:4]# ilk dört veriyi al
-    context = {'setting': setting, 'page': 'home', 'sliderdata': sliderdata} #içeriğe yükleyeceğimiz veriler
+    category = Category.objects.all() #tüm kategor alıyruz
+    context = {'setting': setting, 'page': 'home', 'sliderdata': sliderdata, 'category':category} #içeriğe yükleyeceğimiz veriler
     return render(request, 'index.html', context)
 
 
