@@ -11,8 +11,14 @@ def index(request):  # home daki urls.py den çağrılıyor
     setting = Setting.objects.get(pk=1)
     sliderdata = Car.objects.all()[:4]  # ilk dört veriyi al
     category = Category.objects.all()  # tüm kategor alıyruz
+    dayproducts=Car.objects.all()[:3]
+    lastproducts = Car.objects.all().order_by('-id')[:3]
+    randomproducts = Car.objects.all().order_by('?')[:4]
     context = {'setting': setting, 'page': 'home', 'sliderdata': sliderdata,
-               'category': category}  # içeriğe yükleyeceğimiz veriler
+               'category': category,
+               'dayproducts': dayproducts,
+               'lastproducts': lastproducts,
+               'randomproducts': randomproducts}  # içeriğe yükleyeceğimiz veriler
     return render(request, 'index.html', context)
 
 

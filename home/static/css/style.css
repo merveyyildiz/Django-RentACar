@@ -16,7 +16,7 @@
 }
 
 .section-padding {
-	padding: 100px 0;
+	padding: 30px 0;
 }
 
 .section-title {
@@ -664,7 +664,7 @@ a.slicknav_btn {
 /*== Choose Car Area CSS Start ==*/
 
 #choose-car.section-padding {
-	padding-bottom: 70px;
+	padding-bottom: 20px;
 }
 
 .choose-content-wrap .nav-tabs {
@@ -1995,7 +1995,7 @@ body,
 /*== What Do Area CSS ==*/
 
 #service-area.section-padding {
-	padding-bottom: 50px;
+	padding-bottom: 30px;
 }
 
 /*== What Choose CSS ==*/
@@ -3263,4 +3263,68 @@ textarea {
 
 .home2-car-filter li:hover ul{
     display:block;
+}
+.latest-work article{margin-bottom: 30px;}
+.latest-work article img{display: block;}
+.latest-work article h4{margin-bottom: 0;}
+.latest-work article:nth-last-child(-n+4){margin-bottom: 0 !important;}
+.carousel {position:relative;margin:0;}
+.carousel-wrapper{
+    overflow:hidden;
+	margin:0;
+
+}
+.carousel-wrapper ul {display:none;}
+.carousel-wrapper ul li{
+    max-width:220px;
+	padding:0;
+	height:auto;
+    float:left;
+    display:block;
+	margin:0;
+}
+
+.da-thumbs li  {
+	overflow: hidden;
+	display: block;
+	position: relative;
+	margin:0;
+	padding:0;
+}
+
+.da-thumbs li  img {
+	width:100%;
+	display: block;
+	position: relative;
+	overflow: hidden;
+}
+
+.da-thumbs li  article {
+	position: absolute;
+	background: rgba(0,0,0,0.7);
+	text-shadow:none;
+	text-align:center;
+	width: 100%;
+	height: 100%;
+	margin:0;
+	font-size:14px;
+	color:#fff;
+	font-weight:700;
+	display:block;
+	padding-top:25%;
+}
+
+
+
+
+.da-thumbs li  article.da-animate {
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.da-thumbs li  article a:hover {
+	text-decoration:none;
 }

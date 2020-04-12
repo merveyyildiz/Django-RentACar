@@ -1,5 +1,5 @@
 {% extends "Homebase.html" %}
-{% block title %} {{ categorydata.title }}Products {% endblock %}
+{% block title %} {{ categorydata.title }} Arabaları {% endblock %}
 {% block keywords %} {{ categorydata.key }} {% endblock %}
 {% block description %} {{ categorydata.description }}{% endblock %}
 {% block head %}
@@ -116,7 +116,7 @@
                                     <div class="display-table">
                                         <div class="display-table-cell">
                                             <div class="car-list-info">
-                                                <h2><a href="/product/{{ rs.id }}/{{ rs.slug }}/">{{ rs.title }}</a></h2>
+                                                <h2><a href="/product/{{ rs.id }}/{{ rs.slug }}/">{{ rs.title }}"</a></h2>
                                                 <h5>{{ rs.price }}/3 günlük</h5>
                                                 <p>{{ rs.detail |safe}} </p>
                                                 <ul class="car-info-list">

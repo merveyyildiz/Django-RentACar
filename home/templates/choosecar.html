@@ -30,6 +30,7 @@
 
 .altmenu a:hover {
   background-color:#fff;
+    color: orange;
 }
 
 .altmenu {
@@ -81,16 +82,18 @@
     </div>
 
         <div class="col-lg-9" style="margin-left:70px">
+          <h3>SİZİN İÇİN SEÇİLENLER</h3><hr>
                                 <!-- Choose Cars Content-wrap -->
                                 <div class="row popular-car-gird">
-                                    {% for rs in sliderdata %}
+                                    {% for rs in randomproducts %}
+
                                     <!-- Single Popular Car Start -->
                                     <div class="col-lg-6 col-md-6 con suv mpv">
                                         <div class="single-popular-car">
                                             <div class="p-car-thumbnails">
 
-                                                <a class="car-hover" href="#">
-                                                    <img src="{{ rs.image.url }}" alt="JSOFT">
+                                                <a class="car-hover" href="/product/{{ rs.id }}/{{ rs.slug }}/">
+                                                    <img src="{{ rs.image.url }}" alt="JSOFT" style="height: 160px">
 
                                                 </a>
                                             </div>
@@ -99,9 +102,9 @@
                                                 <h3>
                                                     <span class="price"><i class="fa fa-tag"></i> {{rs.price}}</span>
                                                 </h3>
-
-                                                <h5> {{rs.title}}</h5>
-
+                                            <a href="/product/{{ rs.id }}/{{ rs.slug }}/">
+                                                <h3 style="color:#000000"> {{rs.title}}</h3>
+                                            </a>
                                                 <div class="p-car-feature">
                                                     <p>{{ rs.detail |safe}}</p>
                                                 </div>
