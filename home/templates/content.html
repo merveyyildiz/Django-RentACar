@@ -1,74 +1,78 @@
-  {% load static %}
+{% load static %}
 <section id="choose-car" class="section-padding">
-       <h3 style="margin-left: 100px">DEALS OF THE DAY</h3><hr>
-        <div class="container">
-            <div class="row">
-    <div class="row newest-car-gird">
-{% for rs in dayproducts %}
+    <h3 style="margin-left: 100px">DEALS OF THE DAY</h3>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="row newest-car-gird">
+                {% for rs in dayproducts %}
 
-                                        <!-- Single Newest Car Start -->
-                                        <div class="col-lg-4 col-md-6 tata audi">
-                                            <div class="single-new-car">
-                                                <div class="p-car-thumbnails">
-                                                    <a class="car-hover" href="/product/{{ rs.id }}/{{ rs.slug }}/">
-                                                      <img src="{{ rs.image.url }}" alt="JSOFT" style="height: 150px">
-                                                   </a>
-                                                </div>
+                    <!-- Single Newest Car Start -->
+                    <div class="col-lg-4 col-md-6 tata audi">
+                        <div class="single-new-car">
+                            <div class="p-car-thumbnails">
+                                <a class="car-hover" href="/product/{{ rs.id }}/{{ rs.slug }}/">
+                                    <img src="{{ rs.image.url }}" alt="JSOFT" style="height: 150px">
+                                </a>
+                            </div>
 
-                                                <div class="p-car-content">
-                                                    <h3>
-                                                        <a href="/product/{{ rs.id }}/{{ rs.slug }}/">{{ rs.title }}</a>
-                                                        <span class="price"><i class="fa fa-tag"></i> {{ rs.price }}/3 Günlük</span>
-                                                    </h3>
-<br>
+                            <div class="p-car-content">
+                                <h3>
+                                    <a href="/product/{{ rs.id }}/{{ rs.slug }}/">{{ rs.title }}</a>
+                                    <span class="price"><i class="fa fa-tag"></i> {{ rs.price }}/3 Günlük</span>
+                                </h3>
+                                <br>
 
-                                                    <div class="p-car-feature">
-                                                        <a href="#">2018</a>
-                                                        <a href="#">Auto</a>
-                                                        <a href="#">Non AIR CONDITION</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="p-car-feature">
+                                    <a href="#">2018</a>
+                                    <a href="#">Auto</a>
+                                    <a href="#">Non AIR CONDITION</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 {% endfor %}
 
             </div>
-            </div></div>
+        </div>
+    </div>
 </section>
 <section id="choose-car" class="section-padding" style="margin-top: 0px">
-       <h3 style="margin-left: 100px">SON ÜRÜNLER</h3><hr>
-        <div class="container">
-            <div class="row">
-    <div class="row newest-car-gird">
-{% for rs in lastproducts %}
+    <h3 style="margin-left: 100px">SON ÜRÜNLER</h3>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="row newest-car-gird">
+                {% for rs in lastproducts %}
 
-                                        <!-- Single Newest Car Start -->
-                                        <div class="col-lg-4 col-md-6 tata audi">
-                                            <div class="single-new-car">
-                                                <div class="p-car-thumbnails">
-                                                    <a class="car-hover" href="/product/{{ rs.id }}/{{ rs.slug }}/">
-                                                      <img src="{{ rs.image.url }}" alt="JSOFT" style="height: 150px">
-                                                   </a>
-                                                </div>
+                    <!-- Single Newest Car Start -->
+                    <div class="col-lg-4 col-md-6 tata audi">
+                        <div class="single-new-car">
+                            <div class="p-car-thumbnails">
+                                <a class="car-hover" href="/product/{{ rs.id }}/{{ rs.slug }}/">
+                                    <img src="{{ rs.image.url }}" alt="JSOFT" style="height: 150px">
+                                </a>
+                            </div>
 
-                                                <div class="p-car-content">
-                                                    <h3>
-                                                        <a href="/product/{{ rs.id }}/{{ rs.slug }}/">{{ rs.title }}</a>
-                                                        <span class="price"><i class="fa fa-tag"></i> {{ rs.price }}/3 Günlük</span>
-                                                    </h3><br>
+                            <div class="p-car-content">
+                                <h3>
+                                    <a href="/product/{{ rs.id }}/{{ rs.slug }}/">{{ rs.title }}</a>
+                                    <span class="price"><i class="fa fa-tag"></i> {{ rs.price }}/3 Günlük</span>
+                                </h3><br>
 
-                                                    <div class="p-car-feature">
-                                                        <a href="#">2018</a>
-                                                        <a href="#">Auto</a>
-                                                        <a href="#">Non AIR CONDITION</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="p-car-feature">
+                                    <a href="#">2018</a>
+                                    <a href="#">Auto</a>
+                                    <a href="#">Non AIR CONDITION</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 {% endfor %}
 
             </div>
-            </div></div>
+        </div>
+    </div>
 </section>"

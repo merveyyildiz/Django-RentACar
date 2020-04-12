@@ -1,118 +1,124 @@
 <style>
 
-.anamenu, .altmenu {
-  list-style: none;
-  padding: 0;
- border-style: outset;
-  margin: 0;
-}
+    .anamenu, .altmenu {
+        list-style: none;
+        padding: 0;
+        border-style: outset;
+        margin: 0;
+    }
 
-.anamenu a{
-  display: block;
-  background-color:#fff;
-  text-decoration: none;
-  padding: 10px;
-  color: #000;
-}
+    .anamenu a {
+        display: block;
+        background-color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        color: #000;
+    }
 
-.anamenu a:hover {
-    background-color:orangered;
-}
-.anamenu li:hover .altmenu {
-   display: block;
-  max-height: 200px;
+    .anamenu a:hover {
+        background-color: orangered;
+    }
 
-}
+    .anamenu li:hover .altmenu {
+        display: block;
+        max-height: 200px;
 
-.altmenu a{
+    }
 
-}
+    .altmenu a {
 
-.altmenu a:hover {
-  background-color:#fff;
-    color: orange;
-}
+    }
 
-.altmenu {
-  overflow: hidden;
+    .altmenu a:hover {
+        background-color: #fff;
+        color: orange;
+    }
 
-  max-height: 0;
+    .altmenu {
+        overflow: hidden;
 
-  -webkit-transition: all 0.5s ease-out;
-}
+        max-height: 0;
+
+        -webkit-transition: all 0.5s ease-out;
+    }
 </style>
-        <div class="container" style="margin-top:50px">
-            <div class="row">
-                <!-- Section Title Start -->
-                <div class="col-lg-12">
-                    <div class="section-title  text-center">
-                        <h2>ARABANIZI SEÇİN</h2>
-                        <span class="title-line"><i class="fa fa-car"></i></span>
-                    </div>
-                </div>
-                <!-- Section Title End -->
-            </div>
-      {% load static %}
+<div class="container" style="margin-top:50px">
     <div class="row">
-    {% load mptt_tags %}
-    <div class="col-lg-2">
-        <nav class="nav">
-
-  <ul {% if not node.is_leaf_node %}class="anamenu" {% endif %}>
-            {% load mptt_tags %}
-
-             <li >
-              {% recursetree category %}
-                <li >
-                    <a href="/category/{{ node.id }}/{{ node.slug }}">
-                     {{ node.title }}</a>
-                     {% if not node.is_leaf_node %}
-                       <ul class="altmenu">
-                     <li>
-                         <a href="/category/{{ node.id }}/{{ node.slug }}"> {{ children }}</a>
-                          </li>
-                          </ul>
-                     {% endif %}
-                     </li>
-               {% endrecursetree %}
-
-
-    </li>
-  </ul></nav>
+        <!-- Section Title Start -->
+        <div class="col-lg-12">
+            <div class="section-title  text-center">
+                <h2>ARABANIZI SEÇİN</h2>
+                <span class="title-line"><i class="fa fa-car"></i></span>
+            </div>
+        </div>
+        <!-- Section Title End -->
     </div>
+    {% load static %}
+    <div class="row">
+        {% load mptt_tags %}
+        <div class="col-lg-2">
+            <nav class="nav">
+
+                <ul {% if not node.is_leaf_node %}class="anamenu" {% endif %}>
+                    {% load mptt_tags %}
+
+                    <li>
+                        {% recursetree category %}
+                            <li>
+                                <a href="/category/{{ node.id }}/{{ node.slug }}">
+                                    {{ node.title }}</a>
+                                {% if not node.is_leaf_node %}
+                                    <ul class="altmenu">
+                                        <li>
+                                            <a href="/category/{{ node.id }}/{{ node.slug }}"> {{ children }}</a>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        {% endrecursetree %}
+
+
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
         <div class="col-lg-9" style="margin-left:70px">
-          <h3>SİZİN İÇİN SEÇİLENLER</h3><hr>
-                                <!-- Choose Cars Content-wrap -->
-                                <div class="row popular-car-gird">
-                                    {% for rs in randomproducts %}
+            <h3>SİZİN İÇİN SEÇİLENLER</h3>
+            <hr>
+            <!-- Choose Cars Content-wrap -->
+            <div class="row popular-car-gird">
+                {% for rs in randomproducts %}
 
-                                    <!-- Single Popular Car Start -->
-                                    <div class="col-lg-6 col-md-6 con suv mpv">
-                                        <div class="single-popular-car">
-                                            <div class="p-car-thumbnails">
+                    <!-- Single Popular Car Start -->
+                    <div class="col-lg-6 col-md-6 con suv mpv">
+                        <div class="single-popular-car">
+                            <div class="p-car-thumbnails">
 
-                                                <a class="car-hover" href="/product/{{ rs.id }}/{{ rs.slug }}/">
-                                                    <img src="{{ rs.image.url }}" alt="JSOFT" style="height: 160px">
+                                <a class="car-hover" href="/product/{{ rs.id }}/{{ rs.slug }}/">
+                                    <img src="{{ rs.image.url }}" alt="JSOFT" style="height: 160px">
 
-                                                </a>
-                                            </div>
+                                </a>
+                            </div>
 
-                                            <div class="p-car-content">
-                                                <h3>
-                                                    <span class="price"><i class="fa fa-tag"></i> {{rs.price}}</span>
-                                                </h3>
-                                            <a href="/product/{{ rs.id }}/{{ rs.slug }}/">
-                                                <h3 style="color:#000000"> {{rs.title}}</h3>
-                                            </a>
-                                                <div class="p-car-feature">
-                                                    <p>{{ rs.detail |safe}}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                            <div class="p-car-content">
+                                <h3>
+                                    <span class="price"><i class="fa fa-tag"></i> {{ rs.price }}</span>
+                                </h3>
+                                <a href="/product/{{ rs.id }}/{{ rs.slug }}/">
+                                    <h3 style="color:#000000"> {{ rs.title }}</h3>
+                                </a>
+                                <div class="p-car-feature">
+                                    <p>{{ rs.detail |safe }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                                    <!-- Single Popular Car End -->
-{%  endfor %}
+                    <!-- Single Popular Car End -->
+                {% endfor %}
 
-                                </div> </div> </div></div>
+            </div>
+        </div>
+    </div>
+</div>

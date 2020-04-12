@@ -3,12 +3,13 @@
 {% block keywords %} {{ categorydata.key }} {% endblock %}
 {% block description %} {{ categorydata.description }}{% endblock %}
 {% block head %}
-<link rel="shortcut icon" type="image/x-icon" href="{{setting.icon.url}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">
 {% endblock %}
 
 {% block body %}
-         <section id="car-list-area" class="section-padding" style="margin-top: 80px">
-           <h1 style="display:flex;justify-content: center; margin-bottom: 30px">{{ categorydata.title }} Arabaları</h1><hr>
+    <section id="car-list-area" class="section-padding" style="margin-top: 80px">
+        <h1 style="display:flex;justify-content: center; margin-bottom: 30px">{{ categorydata.title }} Arabaları</h1>
+        <hr>
         <div class="container">
             <div class="row">
 
@@ -99,48 +100,54 @@
                 <div class="col-lg-8">
                     <div class="car-list-content m-t-50">
                         <!-- Single Car Start -->
- {% load static %}
-         {% for rs in products %}
-                        <div class="single-car-wrap">
+                        {% load static %}
+                        {% for rs in products %}
+                            <div class="single-car-wrap">
 
-                            <div class="row">
+                                <div class="row">
 
-                                <!-- Single Car Thumbnail -->
-                                <div class="col-lg-5">
-                                    <div class="car-list-thumb car-thumb-1"><img src="{{ rs.image.url }}" style="margin-top: 50px"></div>
-                                </div>
-                                <!-- Single Car Thumbnail -->
+                                    <!-- Single Car Thumbnail -->
+                                    <div class="col-lg-5">
+                                        <div class="car-list-thumb car-thumb-1"><img src="{{ rs.image.url }}"
+                                                                                     style="margin-top: 50px"></div>
+                                    </div>
+                                    <!-- Single Car Thumbnail -->
 
-                                <!-- Single Car Info -->
-                                <div class="col-lg-7">
-                                    <div class="display-table">
-                                        <div class="display-table-cell">
-                                            <div class="car-list-info">
-                                                <h2><a href="/product/{{ rs.id }}/{{ rs.slug }}/">{{ rs.title }}"</a></h2>
-                                                <h5>{{ rs.price }}/3 günlük</h5>
-                                                <p>{{ rs.detail |safe}} </p>
-                                                <ul class="car-info-list">
-                                                    <li>Air Condition</li>
-                                                    <li>Diesel</li>
-                                                    <li>Auto</li>
-                                                </ul>
-                                                <p class="rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star unmark"></i>
-                                                </p>
-                                                <a href="/product/{{ rs.id }}/{{ rs.slug }}/" class="rent-btn">Kirala</a>
+                                    <!-- Single Car Info -->
+                                    <div class="col-lg-7">
+                                        <div class="display-table">
+                                            <div class="display-table-cell">
+                                                <div class="car-list-info">
+                                                    <h2>
+                                                        <a href="/product/{{ rs.id }}/{{ rs.slug }}/">{{ rs.title }}"</a>
+                                                    </h2>
+                                                    <h5>{{ rs.price }}/3 günlük</h5>
+                                                    <p>{{ rs.detail |safe }} </p>
+                                                    <ul class="car-info-list">
+                                                        <li>Air Condition</li>
+                                                        <li>Diesel</li>
+                                                        <li>Auto</li>
+                                                    </ul>
+                                                    <p class="rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star unmark"></i>
+                                                    </p>
+                                                    <a href="/product/{{ rs.id }}/{{ rs.slug }}/" class="rent-btn">Kirala</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div></div></div>
-{%  endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
 
+                    </div>
+                    <!-- Car List Content End -->
                 </div>
-                <!-- Car List Content End -->
-                </div></div>
+            </div>
         </div>
     </section>
 {% endblock %}

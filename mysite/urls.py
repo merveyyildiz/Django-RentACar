@@ -28,7 +28,8 @@ urlpatterns = [
     path("product/", include("product.urls")),
     path('admin/', admin.site.urls),  # admin şifre merve
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('category/<int:id>/<slug:slug>/', views.category_products, name="category_products")
+    path('category/<int:id>/<slug:slug>/', views.category_products, name="category_products"),
+    path('product/<int:id>/<slug:slug>/', views.product_detail, name="product_detail")
 ]
 
 
