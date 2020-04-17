@@ -1,6 +1,8 @@
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.contrib.auth.models import User
 from django.db import models
 from django.db import models
+from django.forms import ModelForm
 from mptt.models import MPTTModel, TreeForeignKey
 # Create your models here.
 from django.utils.safestring import mark_safe
@@ -78,3 +80,26 @@ class Images(models.Model):
             self.image.url))  # süslü parantezler içine image url gönderdik. oda admin sayfasında img tag ile gözükmesini sağlar
 
     image_tag.short_description = 'Image'
+class Comment(models.Model):
+    STATUS = (
+        ('New', 'Yeni'),
+        ('True', 'Evet'),
+        ('False', 'Hayır'),
+    )
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)  # category ile ilişkisi var
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    subject = models.CharField(max_length=50)
+    comment = models.TextField(max_length=200)
+    rate = models.IntegerField(blank=True)
+    status = models.CharField(max_length=10,blank=True, choices=STATUS,default='new')
+    create_at = models.DateTimeField(auto_now_add=True)
+    update_At = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.subject
+
+class CommentForm(ModelForm):
+    class Meta:
+        model = Comment
+        fields= ['subject','comment' ,'rate'] #hangi alanları html de çağıracaksak bunları belirtiyoruz
+

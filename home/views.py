@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from home.models import Setting, ContactFormu, ContactFormMessage
-from product.models import Car, Category, Images
+from product.models import Car, Category, Images,Comment
 
 
 def index(request):  # home daki urls.py den çağrılıyor
@@ -66,5 +66,6 @@ def product_detail(request, id, slug):
     category = Category.objects.all()
     product = Car.objects.get(pk=id)
     images= Images.objects.filter(car_id=id) #galeri için
-    context = { 'category': category, 'product':product, 'images':images}
+    comments = Comment.objects.filter(car_id=id, status='True')
+    context = {'category': category, 'product':product, 'images':images,'comments': comments}
     return render(request, 'car_detail.html',context)
