@@ -5,7 +5,7 @@ from django.shortcuts import render
 # Create your views here.
 from home.models import Setting, ContactFormu, ContactFormMessage
 from product.models import Car, Category, Images,Comment
-
+from home.forms import SearchForm
 
 def index(request):  # home daki urls.py den çağrılıyor
     setting = Setting.objects.get(pk=1)
@@ -69,3 +69,15 @@ def product_detail(request, id, slug):
     comments = Comment.objects.filter(car_id=id, status='True')
     context = {'category': category, 'product':product, 'images':images,'comments': comments}
     return render(request, 'car_detail.html',context)
+
+def product_search(request):  # ana urls.py den çağırılıyor
+    # kaydetme şekli
+    if request.method == 'POST':  # form post edildiyse
+        form = SearchForm(request.POST)
+        if form.is_valid():  # form geçerli ise
+            category = Category.objects.all()
+            query = form.cleaned_data['query']  # bilgiyi al
+            product = Car.objects.filter(title__icontains=query) #contains içermek başına i yazarsak büyük küçük harf farketmez
+            context = {'product': product, 'category': category}  # setting ve form iletişim sayfasına göndereceğiz
+            return render(request,'car_search.html',context)
+    return HttpResponseRedirect('/')

@@ -1,3 +1,36 @@
+<style>
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: black;
+    color:white;
+    height: 50%;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+      height: 50%;
+    margin-top: 3.5%;
+  background: black;
+  color: white;
+  font-size: 12px;
+  border: 1px solid grey;
+border-left: none;
+  cursor: pointer;
+}
+
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+</style>
 <header id="header-area" class="fixed-top">
     <!--== Header Top Start ==-->
     {% load static %}
@@ -17,9 +50,12 @@
                 <!--== Single HeaderTop End ==-->
 
                 <!--== Single HeaderTop Start ==-->
-                <div class="col-lg-3 text-center">
-                    <i class="fa fa-clock-o"></i> Mon-Fri 09.00 - 17.00
-                </div>
+              <form class="example" action="/search/" method="post">
+            {% csrf_token %}
+                    <input type="text" id="fname" name="query"  placeholder="Ara..">
+                     <button type="submit"><i class="fa fa-search"></i></button>
+
+                    </form>
                 <!--== Single HeaderTop End ==-->
 
                 <!--== Social Icons Start ==-->

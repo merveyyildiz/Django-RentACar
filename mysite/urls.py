@@ -29,7 +29,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),  # admin şifre merve
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('category/<int:id>/<slug:slug>/', views.category_products, name="category_products"),
-    path('product/<int:id>/<slug:slug>/', views.product_detail, name="product_detail")
+    path('product/<int:id>/<slug:slug>/', views.product_detail, name="product_detail"),
+    path('search/', views.product_search, name="product_search"),
 ]
 
 
