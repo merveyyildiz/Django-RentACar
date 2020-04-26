@@ -1,8 +1,10 @@
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.contrib.auth.models import User
 from django.db import models
 
 # Setting, user, comment anasayfayı ilgilendirdiği için burda tanımladık
 from django.forms import TextInput, Textarea, ModelForm
+from django.utils.safestring import mark_safe
 
 
 class Setting(models.Model):
@@ -66,3 +68,25 @@ class ContactFormu(ModelForm):
             'email': TextInput(attrs={'class': 'email-input', 'placeholder': 'Enter Email'}),
             'message': Textarea(attrs={'class': 'textarea', 'placeholder': 'Your message', 'rows': '5'}),
         }
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone = models.CharField(blank=True, max_length=20)
+    address = models.CharField(blank=True, max_length=150)
+    city = models.CharField(blank=True, max_length=20)
+    county = models.CharField(blank=True, max_length=20)
+    image = models.ImageField(blank=True, upload_to='images/users/')
+
+    def __str__(self):
+        return self.user.username
+
+    def user_name(self):
+        return  self.user.first_name + " " + self.user.last_name + " " + '[' + self.user.username + ']'
+
+    def image_tag(self):  # bu fonskiyonu admin kısmında resimler gözüksün diye yazıyoruz ve bu fonk artık çağıracağız
+        return mark_safe('<img src= "{}" height="50"/>'.format(
+            self.image.url))  # süslü parantezler içine image url gönderdik. oda admin sayfasında img tag ile gözükmesini sağlar
+
+class UserProfileFormu(ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['phone', 'address', 'city', 'county', 'image']
