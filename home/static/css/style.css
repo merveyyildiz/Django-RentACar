@@ -3277,22 +3277,3 @@ form.example input[type=text] {
     height: 50%;
 }
 
-form.example button {
-  float: left;
-  width: 20%;
-    height: 100%;
-    margin-top: 3.5%;
-  background: black;
-  color: white;
-  font-size: 12px;
-  border: 1px solid grey;
-border-left: none;
-  cursor: pointer;
-}
-
-
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}

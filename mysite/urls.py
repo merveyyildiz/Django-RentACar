@@ -27,6 +27,7 @@ urlpatterns = [
     path('iletisim/', views.iletisim, name='iletisim'),
     path('login/', views.login_view, name='login_view'),
     path('logout/', views.logout_view, name='logout_view'),
+    path('signup/', views.signup_view, name='signup_view'),
     path("product/", include("product.urls")),
     path('admin/', admin.site.urls),  # admin şifre merve
     path('ckeditor/', include('ckeditor_uploader.urls')),
