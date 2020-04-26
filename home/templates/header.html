@@ -67,8 +67,13 @@
                                 </li>
                                 <li><a href="/hakkimizda">Hakkımızda</a></li>
                                 <li><a href="/referanslar">Referanslar</a></li>
-
                                 <li><a href="/iletisim">İletişim</a></li>
+                                {% if user.id is not None %}
+                                                    <li><a href="/logout">Logout</a></li>
+                                                {% else %}
+                                                <li><a href="/login">Login</a></li>
+                                                {% endif %}
+
                                 <li><div style="margin-left:50px;width:100%">
                                       <form class="example" action="/search/" method="post">
             {% csrf_token %}

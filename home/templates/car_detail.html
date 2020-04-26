@@ -32,200 +32,206 @@
     </div>
 
 
-        <!--== Page Title Area End ==-->
+    <!--== Page Title Area End ==-->
 
-        <!--== Car List Area Start ==-->
-        <section id="car-list-area" class="section-padding">
-            <h5 style="margin-left:150px"><i><a
-                    href="/category/{{ product.category_id }}/{{ product.category.slug }}">{{ product.category }}</a></i>
-            </h5>
-            <br>
-            <div class="container">
-                <div class="row">
+    <!--== Car List Area Start ==-->
+    <section id="car-list-area" class="section-padding">
+        <h5 style="margin-left:150px"><i><a
+                href="/category/{{ product.category_id }}/{{ product.category.slug }}">{{ product.category }}</a></i>
+        </h5>
+        <br>
+        <div class="container">
+            <div class="row">
 
-                    <!-- Car List Content Start -->
-                    <div class="col-lg-8">
-                        <div class="car-details-content">
-                            <h2>{{ product.title }} <span class="price">Rent: <b>{{ product.price }} </b></span></h2>
-                            <div class="car-preview-crousel">
-                                <div class="single-car-preview">
-                                    <img src="{{ product.image.url }} " style="height:400px" alt="JSOFT">
-                                </div>
-                                {% for rs in images %}
-                                    <div class="single-car-preview">
-                                        <img src="{{ rs.image.url }}" alt="JSOFT">
-                                    </div>
-                                {% endfor %}
-
+                <!-- Car List Content Start -->
+                <div class="col-lg-8">
+                    <div class="car-details-content">
+                        <h2>{{ product.title }} <span class="price">Rent: <b>{{ product.price }} </b></span></h2>
+                        <div class="car-preview-crousel">
+                            <div class="single-car-preview">
+                                <img src="{{ product.image.url }} " style="height:400px" alt="JSOFT">
                             </div>
-                            <div class="car-details-info">
-                                <h4>DETAY</h4>
-                                <p>{{ product.detail |safe }} </p>
+                            {% for rs in images %}
+                                <div class="single-car-preview">
+                                    <img src="{{ rs.image.url }}" alt="JSOFT">
+                                </div>
+                            {% endfor %}
 
-                                <div class="technical-info">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <div class="tech-info-table">
-                                                <table class="table table-bordered">
-                                                    <tr>
-                                                        <th>Class</th>
-                                                        <td>Compact</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Fuel</th>
-                                                        <td>Petrol</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Doors</th>
-                                                        <td>5</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>GearBox</th>
-                                                        <td>Automatic</td>
-                                                    </tr>
-                                                </table>
-                                            </div>
+                        </div>
+                        <div class="car-details-info">
+                            <h4>DETAY</h4>
+                            <p>{{ product.detail |safe }} </p>
+
+                            <div class="technical-info">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="tech-info-table">
+                                            <table class="table table-bordered">
+                                                <tr>
+                                                    <th>Class</th>
+                                                    <td>Compact</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Fuel</th>
+                                                    <td>Petrol</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Doors</th>
+                                                    <td>5</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>GearBox</th>
+                                                    <td>Automatic</td>
+                                                </tr>
+                                            </table>
                                         </div>
+                                    </div>
 
-                                        <div class="col-lg-6">
-                                            <div class="tech-info-list">
-                                                <ul>
-                                                    <li>ABS</li>
-                                                    <li>Air Bags</li>
-                                                    <li>Bluetooth</li>
-                                                    <li>Car Kit</li>
-                                                    <li>GPS</li>
-                                                    <li>Music</li>
-                                                    <li>Bluetooth</li>
-                                                    <li>ABS</li>
-                                                    <li>GPS</li>
-                                                </ul>
-                                            </div>
+                                    <div class="col-lg-6">
+                                        <div class="tech-info-list">
+                                            <ul>
+                                                <li>ABS</li>
+                                                <li>Air Bags</li>
+                                                <li>Bluetooth</li>
+                                                <li>Car Kit</li>
+                                                <li>GPS</li>
+                                                <li>Music</li>
+                                                <li>Bluetooth</li>
+                                                <li>ABS</li>
+                                                <li>GPS</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
 
-                                <div class="review-area">
-                                    <h3>{{ product.title }} için yorum yap</h3>
+                            <div class="review-area">
+                                <h3>{{ product.title }} için yorum yap</h3>
 
-                                    <div class="review-form">
-                                        <form action="/product/addcomment/{{ product.id }}" method="POST">
-                                            <!-- product/addcomment fonksiyonuna id gönderdik -->
-                                            {% csrf_token %} <!--manuel olduğu için bunu ekliyoruz-->
-                                            <div class="row">
-                                                <div class="col-lg-6 col-md-6">
-                                                    {% if messages %}
-                                                        {% for message in messages %}
-                                                            <div class="alert-{{ message.tags }}" role="alert">
-                                                                {{ message }}
-                                                            </div>
-                                                        {% endfor %}
-                                                    {% endif %}
-                                                    <div class="name-input">
-                                                        <input type="text" placeholder="Subject" id="id_subject"
-                                                               name="subject">
-                                                    </div>
+                                <div class="review-form">
+                                    <form action="/product/addcomment/{{ product.id }}" method="POST">
+                                        <!-- product/addcomment fonksiyonuna id gönderdik -->
+                                        {% csrf_token %} <!--manuel olduğu için bunu ekliyoruz-->
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6">
+                                                {% if messages %}
+                                                    {% for message in messages %}
+                                                        <div class="alert-{{ message.tags }}" role="alert">
+                                                            {{ message }}
+                                                        </div>
+                                                    {% endfor %}
+                                                {% endif %}
+                                                <div class="name-input">
+                                                    <input type="text" placeholder="Subject" id="id_subject"
+                                                           name="subject">
                                                 </div>
-
-
                                             </div>
 
-                                            <div class="message-input">
+
+                                        </div>
+
+                                        <div class="message-input">
                                                 <textarea cols="30" rows="5" name="comment"
                                                           id="id_comment"
                                                           placeholder="Write Your Feedback Here!"></textarea>
-                                            </div>
-                                            <strong>Yıldızınız</strong>
+                                        </div>
+                                        <strong>Yıldızınız</strong>
 
                                         <div class="container">
-        <div class="starrating risingstar d-flex justify-content-center flex-row-reverse">
-            <input type="radio" id="star5" name="rate" value="5" /><label for="star5" title="5 star">5</label>
-            <input type="radio" id="star4" name="rate" value="4" /><label for="star4" title="4 star">4</label>
-            <input type="radio" id="star3" name="rate" value="3" /><label for="star3" title="3 star">3</label>
-            <input type="radio" id="star2" name="rate" value="2" /><label for="star2" title="2 star">2</label>
-            <input type="radio" id="star1" name="rate" value="1" /><label for="star1" title="1 star">1</label>
-        </div>
-  </div>
-
-                                            <div class="input-submit">
-                                                {% if user.id is not None %}
-                                                    <button type="submit">Submit</button>
-                                                {% else %}
-                                                    Yorum yapmak için Login olunuz !
-                                                {% endif %}
-                                                <button type="reset">Clear</button>
+                                            <div class="starrating risingstar d-flex justify-content-center flex-row-reverse">
+                                                <input type="radio" id="star5" name="rate" value="5"/><label for="star5"
+                                                                                                             title="5 star">5</label>
+                                                <input type="radio" id="star4" name="rate" value="4"/><label for="star4"
+                                                                                                             title="4 star">4</label>
+                                                <input type="radio" id="star3" name="rate" value="3"/><label for="star3"
+                                                                                                             title="3 star">3</label>
+                                                <input type="radio" id="star2" name="rate" value="2"/><label for="star2"
+                                                                                                             title="2 star">2</label>
+                                                <input type="radio" id="star1" name="rate" value="1"/><label for="star1"
+                                                                                                             title="1 star">1</label>
                                             </div>
-                                        </form>
-                                    </div>
+                                        </div>
+
+                                        <div class="input-submit">
+                                            {% if user.id is not None %}
+                                                <button type="submit">Submit</button>
+                                            {% else %}
+                                                Yorum yapmak için Login olunuz !
+                                            {% endif %}
+                                            <button type="reset">Clear</button>
+                                        </div>
+                                    </form>
                                 </div>
-                                </form>
                             </div>
+                            </form>
                         </div>
                     </div>
-                    <!-- Sidebar Area Start -->
-                    <div class="col-lg-4">
-                        <div class="sidebar-content-wrap m-t-50">
-                            <!-- Single Sidebar Start -->
-                            <div class="single-sidebar">
-                                <h3>For More Informations</h3>
+                </div>
+                <!-- Sidebar Area Start -->
+                <div class="col-lg-4">
+                    <div class="sidebar-content-wrap m-t-50">
+                        <!-- Single Sidebar Start -->
+                        <div class="single-sidebar">
+                            <h3>For More Informations</h3>
 
-                                <div class="sidebar-body">
-                                    <p><i class="fa fa-mobile"></i> +8801816 277 243</p>
-                                    <p><i class="fa fa-clock-o"></i> Mon - Sat 8.00 - 18.00</p>
-                                </div>
+                            <div class="sidebar-body">
+                                <p><i class="fa fa-mobile"></i> +8801816 277 243</p>
+                                <p><i class="fa fa-clock-o"></i> Mon - Sat 8.00 - 18.00</p>
                             </div>
-                            <!-- Single Sidebar End -->
+                        </div>
+                        <!-- Single Sidebar End -->
 
-                            <!-- Single Sidebar Start -->
-                            <div class="single-sidebar">
-                                <h3>Rental Tips</h3>
+                        <!-- Single Sidebar Start -->
+                        <div class="single-sidebar">
+                            <h3>Rental Tips</h3>
 
-                                <div class="sidebar-body">
-                                    <ul class="recent-tips">
-                                        {% for rs in comments %}
-                                            <li class="single-recent-tips">
+                            <div class="sidebar-body">
+                                <ul class="recent-tips">
+                                    {% for rs in comments %}
+                                        <li class="single-recent-tips">
                                             <h6>{{ rs.user.first_name }}</h6>
-                                                <i class="fa fa-star{% if rs.rate < 1 %}-o empty{% endif %}"></i>
+                                            <i class="fa fa-star{% if rs.rate < 1 %}-o empty{% endif %}"></i>
                                             <i class="fa fa-star{% if rs.rate < 2 %}-o empty{% endif %}"></i>
                                             <i class="fa fa-star{% if rs.rate < 3 %}-o empty{% endif %}"></i>
                                             <i class="fa fa-star{% if rs.rate < 4 %}-o empty{% endif %}"></i>
                                             <i class="fa fa-star{% if rs.rate < 5 %}-o empty{% endif %}"></i>
-                                                <div class="recent-tip-body">
+                                            <div class="recent-tip-body">
 
-                                                    <p>{{ rs.comment }}</p>
-                                                    <span class="date">{{ rs.create_at }}</span>
-                                                </div>
-                                            </li><hr>
-                                        {% endfor %}
-
-
+                                                <p>{{ rs.comment }}</p>
+                                                <span class="date">{{ rs.create_at }}</span>
+                                            </div>
                                         </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Single Sidebar End -->
+                                        <hr>
+                                    {% endfor %}
 
-                            <!-- Single Sidebar Start -->
-                            <div class="single-sidebar">
-                                <h3>Connect with Us</h3>
 
-                                <div class="sidebar-body">
-                                    <div class="social-icons text-center">
-                                        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                                        <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                                        <a href="#" target="_blank"><i class="fa fa-behance"></i></a>
-                                        <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                        <a href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
-                                    </div>
-                                </div>
+                                    </li>
+                                </ul>
                             </div>
-                            <!-- Single Sidebar End -->
                         </div>
+                        <!-- Single Sidebar End -->
+
+                        <!-- Single Sidebar Start -->
+                        <div class="single-sidebar">
+                            <h3>Connect with Us</h3>
+
+                            <div class="sidebar-body">
+                                <div class="social-icons text-center">
+                                    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" target="_blank"><i class="fa fa-behance"></i></a>
+                                    <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Single Sidebar End -->
                     </div>
-                    <!-- Sidebar Area End -->
                 </div>
+                <!-- Sidebar Area End -->
             </div>
-        </section>
+        </div>
+    </section>
 
 {% endblock %}
