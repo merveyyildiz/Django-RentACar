@@ -1,0 +1,93 @@
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: black;
+    color:white;
+    height: 50%;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+    height: 100%;
+    margin-top: 3.5%;
+  background: black;
+  color: white;
+  font-size: 12px;
+  border: 1px solid grey;
+border-left: none;
+  cursor: pointer;
+}
+
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+.starrating > input {display: none;}  /* Remove radio buttons */
+
+.starrating > label:before {
+  content: "\f005"; /* Star */
+  margin: 2px;
+  font-size: 2em;
+  font-family: FontAwesome;
+  display: inline-block;
+}
+
+.starrating > label
+{
+  color: #222222; /* Start color when not clicked */
+}
+
+.starrating > input:checked ~ label
+{ color: #ffca08 ; } /* Set yellow color when star checked */
+
+.starrating > input:hover ~ label
+{ color: #ffca08 ;  } /* Set yellow color when star hover */
+    .anamenu, .altmenu {
+        list-style: none;
+        padding: 0;
+        border-style: outset;
+        margin: 0;
+    }
+
+    .anamenu a {
+        display: block;
+        background-color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        color: #000;
+    }
+
+    .anamenu a:hover {
+        background-color: orangered;
+    }
+
+    .anamenu li:hover .altmenu {
+        display: block;
+        max-height: 200px;
+
+    }
+
+    .altmenu a {
+
+    }
+
+    .altmenu a:hover {
+        background-color: #fff;
+        color: orange;
+    }
+
+    .altmenu {
+        overflow: hidden;
+
+        max-height: 0;
+
+        -webkit-transition: all 0.5s ease-out;
+    }

@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-
+import json
 # Create your views here.
 from home.models import Setting, ContactFormu, ContactFormMessage
 from product.models import Car, Category, Images,Comment
@@ -24,13 +24,15 @@ def index(request):  # home daki urls.py den çağrılıyor
 
 def hakkimizda(request):  # ana urls.py den çağırılıyor
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting}
+    category = Category.objects.all()  # tüm kategor alıyruz
+    context = {'setting': setting,'category': category}
     return render(request, 'hakkimizda.html', context)
 
 
 def referanslarimiz(request):  # ana urls.py den çağırılıyor
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting}
+    category = Category.objects.all()  # tüm kategor alıyruz
+    context = {'setting': setting,'category': category}
     return render(request, 'referanslarimiz.html', context)
 
 
@@ -51,7 +53,8 @@ def iletisim(request):  # ana urls.py den çağırılıyor
         # bu kısım forma ulaşmak için
     setting = Setting.objects.get(pk=1)
     form = ContactFormu
-    context = {'setting': setting, 'form': form}  # setting ve form iletişim sayfasına göndereceğiz
+    category = Category.objects.all()  # tüm kategor alıyruz
+    context = {'setting': setting, 'form': form,'category': category}  # setting ve form iletişim sayfasına göndereceğiz
     return render(request, 'iletisim.html', context)
 
 
@@ -81,3 +84,18 @@ def product_search(request):  # ana urls.py den çağırılıyor
             context = {'product': product, 'category': category}  # setting ve form iletişim sayfasına göndereceğiz
             return render(request,'car_search.html',context)
     return HttpResponseRedirect('/')
+
+def product_search_auto(request):
+  if request.is_ajax():
+    q = request.GET.get('term', '')
+    car = Car.objects.filter(title__icontains=q)
+    results = []
+    for rs in car:
+      car_json = {}
+      car_json = rs.title
+      results.append(car_json)
+    data = json.dumps(results)
+  else:
+    data = 'fail'
+  mimetype = 'application/json'
+  return HttpResponse(data, mimetype)

@@ -92,12 +92,14 @@
 #header-top {
 	background-color: #1e2228;
 	padding: 8px 0;
+		z-index:9999;
 }
 
 #header-top i {
 	color: #ffd000;
 	font-size: 15px;
 	margin-right: 2px;
+
 }
 
 #header-area .header-social-icons a i.fa {
@@ -192,7 +194,7 @@ header.fixTotop #header-bottom {
 	transition: all 0.4s ease 0s;
 	visibility: hidden;
 	width: 220px;
-	z-index: 9999;
+	z-index: 9990;
 }
 
 .mainmenu ul li ul::after {
@@ -3263,4 +3265,34 @@ textarea {
 
 .home2-car-filter li:hover ul{
     display:block;
+}
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: black;
+    color:white;
+    height: 50%;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+    height: 100%;
+    margin-top: 3.5%;
+  background: black;
+  color: white;
+  font-size: 12px;
+  border: 1px solid grey;
+border-left: none;
+  cursor: pointer;
+}
+
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
 }

@@ -1,36 +1,21 @@
-<style>
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: black;
-    color:white;
-    height: 50%;
-}
-
-form.example button {
-  float: left;
-  width: 20%;
-      height: 50%;
-    margin-top: 3.5%;
-  background: black;
-  color: white;
-  font-size: 12px;
-  border: 1px solid grey;
-border-left: none;
-  cursor: pointer;
-}
-
-
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!-- jQuery UI !-->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script>
+    $(function(){
+        $("#query").autocomplete({
+            source:"/search_auto/",
+            select:function(event,ui){//item selected
+                AutoCompleteSelectHandler(event,ui)
+                },
+            minLenght:2,
+        });
+    });
+    function  AutoCompleteSelectHandler(event,ui) {
+         var selectObj=ui.item;
+    }
+</script>
 <header id="header-area" class="fixed-top">
     <!--== Header Top Start ==-->
     {% load static %}
@@ -43,20 +28,7 @@ form.example::after {
                 </div>
                 <!--== Single HeaderTop End ==-->
 
-                <!--== Single HeaderTop Start ==-->
-                <div class="col-lg-3 text-center">
-                    <i class="fa fa-mobile"></i> +1 800 345 678
-                </div>
-                <!--== Single HeaderTop End ==-->
 
-                <!--== Single HeaderTop Start ==-->
-              <form class="example" action="/search/" method="post">
-            {% csrf_token %}
-                    <input type="text" id="fname" name="query"  placeholder="Ara..">
-                     <button type="submit"><i class="fa fa-search"></i></button>
-
-                    </form>
-                <!--== Single HeaderTop End ==-->
 
                 <!--== Social Icons Start ==-->
                 <div class="col-lg-3 text-right">
@@ -78,7 +50,7 @@ form.example::after {
         <div class="container">
             <div class="row">
                 <!--== Logo Start ==-->
-                <div class="col-lg-4">
+                <div class="col-lg-2">
                     <a href="index3.html" class="logo">
                         <img src="{% static 'img/logo.png' %}" alt="JSOFT">
                     </a>
@@ -86,20 +58,33 @@ form.example::after {
                 <!--== Logo End ==-->
 
                 <!--== Main Menu Start ==-->
-                <div class="col-lg-8 d-none d-xl-block">
-                    <nav class="mainmenu alignright">
-                        <div class="dropdown">
+                <div class="col-lg-10 d-none d-xl-block">
+                    <nav class="mainmenu alignrightt">
+
                             <ul>
                                 <li><a href="/">Anasayfa</a>
 
                                 </li>
                                 <li><a href="/hakkimizda">Hakkımızda</a></li>
                                 <li><a href="/referanslar">Referanslar</a></li>
-                                <li><a href="services.html">Servislerimiz</a></li>
+
                                 <li><a href="/iletisim">İletişim</a></li>
+                                <li><div style="margin-left:50px;width:100%">
+                                      <form class="example" action="/search/" method="post">
+            {% csrf_token %}
+                    <input type="text" id="query" name="query"  placeholder="Ara..">
+                  {% load mptt_tags %}
+
+                     <button type="submit"><i class="fa fa-search"></i></button>
+
+                    </form>
+                                    </div>
+                                </li>
                             </ul>
-                        </div>
+
+
                     </nav>
+
                 </div>
                 <!--== Main Menu End ==-->
             </div>
