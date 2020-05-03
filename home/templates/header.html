@@ -1,19 +1,20 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <!-- jQuery UI !-->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<!-- jQuery UI !-->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script>
-    $(function(){
+    $(function () {
         $("#query").autocomplete({
-            source:"/search_auto/",
-            select:function(event,ui){//item selected
-                AutoCompleteSelectHandler(event,ui)
-                },
-            minLenght:2,
+            source: "/search_auto/",
+            select: function (event, ui) {//item selected
+                AutoCompleteSelectHandler(event, ui)
+            },
+            minLenght: 2,
         });
     });
-    function  AutoCompleteSelectHandler(event,ui) {
-         var selectObj=ui.item;
+
+    function AutoCompleteSelectHandler(event, ui) {
+        var selectObj = ui.item;
     }
 </script>
 <header id="header-area" class="fixed-top">
@@ -27,7 +28,6 @@
                     <i class="fa fa-map-marker"></i> 802/2, Mirpur, Dhaka
                 </div>
                 <!--== Single HeaderTop End ==-->
-
 
 
                 <!--== Social Icons Start ==-->
@@ -51,7 +51,7 @@
             <div class="row">
                 <!--== Logo Start ==-->
                 <div class="col-lg-2">
-                    <a href="index3.html" class="logo">
+                    <a href="/" class="logo">
                         <img src="{% static 'img/logo.png' %}" alt="JSOFT">
                     </a>
                 </div>
@@ -61,31 +61,33 @@
                 <div class="col-lg-10 d-none d-xl-block">
                     <nav class="mainmenu alignrightt">
 
-                            <ul>
-                                <li><a href="/">Anasayfa</a>
+                        <ul>
+                            <li><a href="/">Anasayfa</a>
 
-                                </li>
-                                <li><a href="/hakkimizda">Hakkımızda</a></li>
-                                <li><a href="/referanslar">Referanslar</a></li>
-                                <li><a href="/iletisim">İletişim</a></li>
-                                {% if user.id is not None %}
-                                                    <li><a href="/logout">Logout</a></li>
-                                                {% else %}
-                                                <li><a href="/login">Login</a></li>
-                                                {% endif %}
+                            </li>
+                            <li><a href="/hakkimizda">Hakkımızda</a></li>
+                            <li><a href="/referanslar">Referanslar</a></li>
+                            <li><a href="/iletisim">İletişim</a></li>
+                            {% if user.id is not None %}
+                                <li><a href="/user">Hesabım</a></li>
+                                <li><a href="/logout">Logout</a></li>
+                            {% else %}
+                                <li><a href="/login">Login</a></li>
+                            {% endif %}
 
-                                <li><div style="margin-left:50px;width:100%">
-                                      <form class="example" action="/search/" method="post">
-            {% csrf_token %}
-                    <input type="text" id="query" name="query"  placeholder="Ara..">
-                  {% load mptt_tags %}
+                            <li>
+                                <div style="margin-left:50px;width:100%">
+                                    <form class="example" action="/search/" method="post">
+                                        {% csrf_token %}
+                                        <input type="text" id="query" name="query" placeholder="Ara..">
+                                        {% load mptt_tags %}
 
-                     <button type="submit"><i class="fa fa-search"></i></button>
+                                        <button type="submit"><i class="fa fa-search"></i></button>
 
-                    </form>
-                                    </div>
-                                </li>
-                            </ul>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
 
 
                     </nav>

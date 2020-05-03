@@ -1,0 +1,57 @@
+{% extends "homebase.html" %}
+{% block title %} {{ profile.user.first_name }} Profil {% endblock %}
+{% block keywords %} {{ setting.key }} {% endblock %}
+{% block description %} {{ setting.description }}{% endblock %}
+{% block head %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">
+{% endblock %}
+
+{% block body %}
+    {% load static %}
+
+    <section id="about-area" class="section-padding">
+
+        <div class="container" style="margin-top:140px">
+
+            <div class="row">
+
+                {% include "user_panel.html" %}
+                <div class="col-lg-9">
+                    <div class="about-content">
+                        <h3 style="margin: 20px 0px 10px 0px">KULLANICI BİLGİLERİ</h3>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th></th>
+                                <th><img src="{{ profile.image.url }}" alt=""></th>
+                            </tr>
+                            <tr>
+                                <th>Ad Soyad</th>
+                                <th>{{ profile.user.first_name }}{{ profile.user.last_name }}</th>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <th>{{ profile.user.email }}</th>
+                            </tr>
+                            <tr>
+                                <th>Telefon</th>
+                                <th>{{ profile.phone }}</th>
+                            </tr>
+                            <tr>
+                                <th>Adres</th>
+                                <th>{{ profile.address }}</th>
+                            </tr>
+                            <tr>
+                                <th>City</th>
+                                <th>{{ profile.city }}</th>
+
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
