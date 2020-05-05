@@ -3277,3 +3277,13 @@ form.example input[type=text] {
     height: 50%;
 }
 
+.update{
+    width:150px;
+	height: 40px;
+	background-color: #ffca08;
+ font-family: "Helvetica", "Arial", sans-serif;
+	font-weight: bold;
+    font-size:16px;
+	border-color: #0b0b0b;
+	border-radius: 10px;
+         }

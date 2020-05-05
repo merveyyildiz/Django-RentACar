@@ -19,7 +19,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class CarAdmin(admin.ModelAdmin):
     # fields = ['title', 'status'] ekleme silme düzenleme için alanlari gösterir
-    list_display = ['title', 'category', 'price', 'image_tag',
+    list_display = ['title', 'category', 'price','image_tag',
                     'status']  # 'image' eklersek image yolunu verir, image_tag fonk çağırdık resim gözüksün diye
     readonly_fields = ('image_tag',)
     list_filter = ["status", "category"]  # filtreleme

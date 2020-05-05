@@ -70,7 +70,7 @@ class ContactFormu(ModelForm):
         }
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.CharField(blank=True, max_length=20)
+    phone = models.IntegerField(blank=True)
     address = models.CharField(blank=True, max_length=150)
     city = models.CharField(blank=True, max_length=20)
     county = models.CharField(blank=True, max_length=20)
@@ -85,6 +85,8 @@ class UserProfile(models.Model):
     def image_tag(self):  # bu fonskiyonu admin kısmında resimler gözüksün diye yazıyoruz ve bu fonk artık çağıracağız
         return mark_safe('<img src= "{}" height="50"/>'.format(
             self.image.url))  # süslü parantezler içine image url gönderdik. oda admin sayfasında img tag ile gözükmesini sağlar
+
+    image_tag.short_description = 'Image'
 
 class UserProfileFormu(ModelForm):
     class Meta:
