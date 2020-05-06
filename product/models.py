@@ -88,16 +88,16 @@ class Images(models.Model):
     image_tag.short_description = 'Image'
 class Comment(models.Model):
     STATUS = (
+        ('False', 'Hayır'),
         ('New', 'Yeni'),
         ('True', 'Evet'),
-        ('False', 'Hayır'),
     )
     car = models.ForeignKey(Car, on_delete=models.CASCADE)  # category ile ilişkisi var
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     subject = models.CharField(max_length=50)
     comment = models.TextField(max_length=200)
     rate = models.IntegerField(blank=True)
-    status = models.CharField(max_length=10,blank=True, choices=STATUS,default='new')
+    status = models.CharField(max_length=10,blank=True, choices=STATUS,default='New')
     create_at = models.DateTimeField(auto_now_add=True)
     update_At = models.DateTimeField(auto_now=True)
 

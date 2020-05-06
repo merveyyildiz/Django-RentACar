@@ -67,7 +67,7 @@ class CategoryAdmin2(DraggableMPTTAdmin):
 
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['subject', 'comment', 'car','user','status']
-    list_filter = ('status',)
+    list_filter = ['status',]
 
 admin.site.register(Car, CarAdmin)
 admin.site.register(Category, CategoryAdmin2)
