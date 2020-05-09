@@ -1,0 +1,93 @@
+{% extends "homebase.html" %}
+{% block title %} Rezervasyon Detay{% endblock %}
+{% block keywords %} {{ setting.key }} {% endblock %}
+{% block description %} {{ setting.description }}{% endblock %}
+{% block head %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">
+{% endblock %}
+
+{% block body %}
+    {% load static %}
+
+    <section id="about-area" class="section-padding">
+
+        <div class="container" style="margin-top:140px">
+
+            <div class="row">
+
+                {% include "user_panel.html" %}
+                <div class="col-lg-9">
+                    <div class="about-content">
+                        <h3 style="margin: 20px 0px 10px 0px">REZERVASYON BİLGİLERİ</h3> <table class="table table-bordered">
+
+                            <tr>
+                                <th>Ad Soyad</th>
+                                <th>{{ order.first_name }}{{ " " }}{{ order.last_name }}</th>
+                            </tr>
+
+                            <tr>
+                                <th>Telefon</th>
+                                <th>{{ order.phone }}</th>
+                            </tr>
+                            <tr>
+                                <th>Adres</th>
+                                <th>{{ order.address }}</th>
+                            </tr>
+                            <tr>
+                                <th>City</th>
+                                <th>{{ order.city }}</th>
+
+                            </tr>
+                          <tr>
+                                <th>Country</th>
+                                <th>{{ order.country }}</th>
+
+                            </tr>
+                          <tr>
+                                <th>Rezervasyon yapılma tarihi</th>
+                                <th>{{ order.create_at }}</th>
+
+                            </tr>
+
+                           <tr>
+                                <th>Not</th>
+                                <th>{{ order.adminnote }}</th>
+
+                            </tr>
+                        </table>
+
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Image</th>
+                                <th>Araba Ad</th>
+                                <th>Ücret</th>
+                                <th>Gün</th>
+                                <th>Tarih</th>
+                                <th>Durum</th>
+                             
+                            </tr>
+
+                            <tr>
+
+                                <th><img src="{{ car.image.url }}" height="120" width="120"></th>
+
+                                    <th><a href="/product/{{ car.id }}/{{ car.slug }}/">{{ car.title }} </a></th>
+
+                                <th>{{ order.total }}</th>
+                                <th>{{ order.quatity }}</th>
+
+                                <th>{{ order.date_buy }}</th>
+                                <th>{{ order.status }}</th>
+
+                            </tr>
+
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

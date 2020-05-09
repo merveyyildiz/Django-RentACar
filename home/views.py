@@ -193,7 +193,7 @@ def orderproduct(request, id):
             product.amount = product.amount - 1
             product.save()
 
-            messages.success(request, "Rezervasyonunuz Yapıldı")
+            messages.success(request, "Rezervasyonunuz Yapıldı\nCode %s" %ordercode)
             return HttpResponseRedirect(url)
             # return HttpResponseRedirect("/")
         else:
