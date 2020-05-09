@@ -2,18 +2,111 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03ebfe3b-77b5-4a28-b849-fb958c71b1c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/user/templates/user_comments.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0006_order_orderproduct.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0007_calculate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0008_auto_20200509_1633.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0009_auto_20200509_1737.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0010_order_car_id.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/order_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/migrations/0010_auto_20200508_2349.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/458.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/a-class.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/a-classic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/a-classic2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/aksentic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/aksentic2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/aksentic2_RfX3fFC.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/aksentic_5vQuQEr.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/carsan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/carsan_i5mduU0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/carsanic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/carsanic2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/carsanic2_8rFhe9m.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/carsanic_F4WBEOX.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/carsanic_gaCkeNJ.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/clio.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/clio2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/clio2_jREeDhR.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/clio3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/clio3_8oDgYwC.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/clio3_TAaw6ts.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/clio_0AkcRrX.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/clubmann.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/daciadokker.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/daciasendero.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/dokkeric.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/dokkeric2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/dokkeric2_XyHea4N.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/dokkeric2_hZVqQRW.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/dokkeric_emvV9ac.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/dokkeric_h1H2yal.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/elentra2_WqSJUsR.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/elentra3_yBpCy4A.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/evogue2jpg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/f40-arka.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/f40-arka_A6oVj8z.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/f40-ic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/f40-ic_Ns8JJFY.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/f40.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/f458-yan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/f458-yan_6AWht9r.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/f458.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/f458_zzlTiJv.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/f458ic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/f458ic_4QTsmuS.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/hundaiaksent.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/hundaiaksent_WitL6Fz.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/hundaitucson.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/hundaitucson_CqyzIyf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/logan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/megane.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/megane2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/megane2_NXa0WnE.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/megane3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/megane3_9QORLzM.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/megane_qXNnaF9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/rroverrevaric.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/rroverrevaric2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/rroverrevaric2_9MUpD3O.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/rroverrevaric_FWYlDPB.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/rrrevar.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/rrrvelar2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/tucsonic1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/tucsonic1_C5jmELX.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/tucsonic2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/tucsonic2_wj2BKLO.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/vosvos-ic_Pit6bGL.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/vosvos2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/vosvos2_qY3eu4D.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/vosvos3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/vosvosic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/vosvosic2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/vosvosic2_Y0q7SRv.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/vosvosic3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/vosvosic4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/x-class-ic.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/x-class-ic2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/x-class-ic2_5OWGMSm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/x-class-ic_fMlgndm.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/x-class.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/x-class_NiVqoIL.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/x5-.3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/x5.2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/x5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/x6-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/x6-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/x6.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/static/css/plugins/style2.css" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/css/plugins/style2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/car.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/car.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/car_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/car_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/homebase.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/homebase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/user_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_panel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/iletisim.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/iletisim.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +174,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/templates" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -93,9 +186,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Django\rent-a-car\home\templates" />
+      <recent name="C:\Django\rent-a-car\order" />
       <recent name="C:\Django\rent-a-car\user\templates" />
       <recent name="C:\Django\rent-a-car\user" />
-      <recent name="C:\Django\rent-a-car\home\templates" />
       <recent name="C:\Django\rent-a-car\home" />
     </key>
   </component>
@@ -148,7 +242,24 @@
       <workItem from="1588714680535" duration="1170000" />
       <workItem from="1588769306354" duration="1673000" />
       <workItem from="1588771015883" duration="1792000" />
-      <workItem from="1588772832563" duration="895000" />
+      <workItem from="1588772832563" duration="1134000" />
+      <workItem from="1588887909615" duration="663000" />
+      <workItem from="1588967087076" duration="1426000" />
+      <workItem from="1588968836604" duration="1793000" />
+      <workItem from="1588970649737" duration="1792000" />
+      <workItem from="1588972461907" duration="1790000" />
+      <workItem from="1588974311706" duration="1515000" />
+      <workItem from="1588977121358" duration="1789000" />
+      <workItem from="1588978934533" duration="1788000" />
+      <workItem from="1588980745606" duration="326000" />
+      <workItem from="1589022946079" duration="1664000" />
+      <workItem from="1589024654480" duration="1789000" />
+      <workItem from="1589026463066" duration="1789000" />
+      <workItem from="1589028275525" duration="1791000" />
+      <workItem from="1589030096413" duration="1786000" />
+      <workItem from="1589031909730" duration="1827000" />
+      <workItem from="1589033805090" duration="1791000" />
+      <workItem from="1589035624892" duration="1017000" />
     </task>
     <task id="LOCAL-00001" summary="Kategori Ürünlerini Gösterme">
       <created>1586635704170</created>
@@ -206,9 +317,9 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="609" y="346" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1586635707076" />
-    <state x="748" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1586702304155">
+    <state x="748" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1588980011065">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="748" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1586702304155" />
+    <state x="748" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1588980011065" />
   </component>
 </project>

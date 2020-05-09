@@ -1,0 +1,72 @@
+{% extends "homebase.html" %}
+{% block title %} Rezervasyon {% endblock %}
+{% block keywords %} {{ setting.key }} {% endblock %}
+{% block description %} {{ setting.description }}{% endblock %}
+{% block head %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">
+{% endblock %}
+{% block body %}
+    {% load static %}
+    <section id="about-area" class="section-padding" style="margin-top: 120px">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 style="margin: 20px 0px 10px 0px">DETAY</h3>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form action="" method="post">
+                        {% csrf_token %} <!--  saldırılardan korur-->
+                        <p><label for="id_first_name">Ad</label>
+                            <input type="text" name="first_name" value="{{ user.first_name }}" class="name-input"
+                                   maxlength="40"></p>
+                        <p><label for="id_last_name">Soyad</label>
+                            <input type="text" name="last_name" value="{{ user.last_name }}" class="name-input"
+                                   maxlength="40"></p>
+                        <p><label for="id_address">Adres</label>
+                            <input type="text" name="address" value="{{ profile.address }}" class="name-input"
+                                   maxlength="100"></p>
+                        <p><label for="id_phone">Telefon</label>
+                            <input type="text" name="phone" value="{{ profile.phone }}" class="name-input"
+                                   maxlength="20"></p>
+                        <p><label for="id_city">Şehir</label>
+                            <select name="city" class="input-group" id="id_city">
+                                <option value="{{ profile.city }}" selected>{{ profile.city }}</option>
+                                <option value="Istanbul">İstanbul</option>
+                                <option value="Ankara">Ankara</option>
+                                <option value="Kocaeli">Kocaeli</option>
+                                <option value="Eskişehir">Eskişehir</option>
+                                <option value="Karabük">Karabük</option>
+                            </select>
+                        <p><label for="id_country">Ülke</label>
+                            <input type="text" name="country" value="{{ profile.county }}" class="name-input"
+                                   maxlength="20" id="id_country">
+        
+                            <button class="kirala">Kirala</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <h3 style="margin: 20px 0px 10px 0px">Kart Bilgileri</h3>
+                    <p><label for="id_firs_name">Total:</label>
+                        <input type="text" name="total" readonly value="${{ total }}" class="name-input">
+                    <p><label for="id_firs_name">Kartın Üstündeki İsim</label>
+                        <input type="text" name="number" value="" class="name-input" maxlength="16">
+                    <p><label for="id_firs_name">Kart Numarası</label>
+                        <input type="text" name="number" value="" class="name-input" maxlength="16">
+                    <p><label for="id_firs_name">Ay/Yıl</label>
+                        <input type="text" name="expdate" value="" class="name-input" placeholder="ay/yıl">
+                    <p><label for="id_firs_name">CV2</label>
+                        <input type="text" name="expdate" value="" class="name-input">
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}

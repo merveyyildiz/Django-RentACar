@@ -1,10 +1,14 @@
 from django.contrib import messages
 from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+
 import json
+from django.utils.crypto import get_random_string
 # Create your views here.
-from home.models import Setting, ContactFormu, ContactFormMessage
+from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile, OrderForm, Order, OrderProduct, \
+    CalculateForm, Calculate
 from product.models import Car, Category, Images, Comment
 from home.forms import SearchForm, SignUpForm
 
@@ -73,6 +77,14 @@ def product_detail(request, id, slug):
     category = Category.objects.all()
     product = Car.objects.get(pk=id)
     images = Images.objects.filter(car_id=id)  # galeri için
+    if request.method == 'POST':
+        form = CalculateForm(request.POST)
+        if form.is_valid():  # form geçerli ise
+            data = Calculate()
+            data.date_buy = form.cleaned_data['date_buy']
+            data.day = form.cleaned_data['day']
+            data.save()
+            return HttpResponseRedirect("/order/orderproduct/%s" % product.id)
     comments = Comment.objects.filter(car_id=id, status='True')
     context = {'category': category, 'product': product, 'images': images, 'comments': comments}
     return render(request, 'car_detail.html', context)
@@ -147,3 +159,51 @@ def signup_view(request):
     category = Category.objects.all()
     context = {'category': category, 'form': form}
     return render(request, 'signup.html', context)
+
+
+@login_required(login_url='/login')  # check login
+def orderproduct(request, id):
+    url = request.META.get("HTTP_REFERER")  # gelinen url
+    category = Category.objects.all()
+    current_user = request.user
+    product = Car.objects.get(id=id)
+    total = Calculate.objects.all().order_by('-id')[0].day * product.price
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():  # form geçerli ise
+            data = Order()
+            data.first_name = form.cleaned_data['first_name']  # formdan veriyi getiriyor
+            data.last_name = form.cleaned_data['last_name']  # formdan veriyi getiriyor
+            data.city = form.cleaned_data['city']  # formdan veriyi getiriyor
+            data.phone = form.cleaned_data['phone']  # formdan veriyi getiriyor
+            data.date_buy =Calculate.objects.all().order_by('-id')[0].date_buy
+            data.quatity = Calculate.objects.all().order_by('-id')[0].day
+            data.address = form.cleaned_data['address']
+            data.country = form.cleaned_data['country']
+            data.user_id = current_user.id
+            data.car_id=id
+            data.total = total
+            data.ip = request.META.get('REMOTE_ADDR')
+            ordercode = get_random_string(5).upper()
+            data.code = ordercode
+            data.save()
+
+            orderproduct = OrderProduct()
+            orderproduct.user_id = current_user.id
+            product.amount = product.amount - 1
+            product.save()
+
+            messages.success(request, "Rezervasyonunuz Yapıldı")
+            return HttpResponseRedirect(url)
+            # return HttpResponseRedirect("/")
+        else:
+            messages.warning(request, form.errors)
+            return HttpResponseRedirect(url)
+    form = OrderForm()
+    profile = UserProfile.objects.get(user_id=current_user.id)
+    context = {'category': category,
+               'total': total,
+               'form': form,
+               'profile': profile
+               }
+    return render(request, 'Order_Form.html', context)

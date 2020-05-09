@@ -100,6 +100,21 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    <form action="" method="POST">
+                                        {% csrf_token %} <!--  saldırılardan korur-->
+                                        <p><label for="id_date_buy">Kiralayacağınız Tarih</label>
+                                            <input type="date" name="date_buy" value="date_buy"
+                                                   maxlength="8">
+                                        <p><label for="id_day">Kaç gün</label>
+                                            <input type="number" name="day" value="day" class="name-number"
+                                                   style="margin-left: 88px"
+                                                   maxlength="2"><br>
+                                            <button type="submit"
+                                                    style="width: 300px;background-color:green; height: 50px;color: white">
+                                                Kirala
+                                            </button>
+                                    </form>
+
                                 </div>
                             </div>
 
@@ -182,7 +197,7 @@
 
                         <!-- Single Sidebar Start -->
                         <div class="single-sidebar">
-                            <h3>Rental Tips</h3>
+                            <h3>Yorumlar</h3>
 
                             <div class="sidebar-body">
                                 <ul class="recent-tips">
@@ -208,26 +223,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- Single Sidebar End -->
 
-                        <!-- Single Sidebar Start -->
-                        <div class="single-sidebar">
-                            <h3>Connect with Us</h3>
-
-                            <div class="sidebar-body">
-                                <div class="social-icons text-center">
-                                    <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                                    <a href="#" target="_blank"><i class="fa fa-behance"></i></a>
-                                    <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#" target="_blank"><i class="fa fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single Sidebar End -->
                     </div>
                 </div>
-                <!-- Sidebar Area End -->
             </div>
         </div>
     </section>

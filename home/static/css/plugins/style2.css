@@ -75,9 +75,6 @@ form.example::after {
 
     }
 
-    .altmenu a {
-
-    }
 
     .altmenu a:hover {
         background-color: #fff;
@@ -91,3 +88,18 @@ form.example::after {
 
         -webkit-transition: all 0.5s ease-out;
     }
+
+.kirala {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+    width: 100%;
+}
+
+.kirala:hover {
+  background-color: green;
+}

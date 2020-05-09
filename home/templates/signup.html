@@ -44,7 +44,7 @@
                                     {% endfor %}
                                 {% endif %}
                                 <form action="" method="post">
-                                    {% csrf_token %}
+                                    {% csrf_token %}<!--  saldırılardan korur-->
 
                                     {% for field in form %}
                                         <p>
