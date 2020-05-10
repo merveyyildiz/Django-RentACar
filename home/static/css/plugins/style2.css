@@ -1,34 +1,3 @@
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: black;
-    color:white;
-    height: 50%;
-}
-
-form.example button {
-  float: left;
-  width: 20%;
-    height: 100%;
-    margin-top: 3.5%;
-  background: black;
-  color: white;
-  font-size: 12px;
-  border: 1px solid grey;
-border-left: none;
-  cursor: pointer;
-}
-
-
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
 
 .starrating > input {display: none;}  /* Remove radio buttons */
 
@@ -50,44 +19,6 @@ form.example::after {
 
 .starrating > input:hover ~ label
 { color: #ffca08 ;  } /* Set yellow color when star hover */
-    .anamenu, .altmenu {
-        list-style: none;
-        padding: 0;
-        border-style: outset;
-        margin: 0;
-    }
-
-    .anamenu a {
-        display: block;
-        background-color: #fff;
-        text-decoration: none;
-        padding: 10px;
-        color: #000;
-    }
-
-    .anamenu a:hover {
-        background-color: orangered;
-    }
-
-    .anamenu li:hover .altmenu {
-        display: block;
-        max-height: 200px;
-
-    }
-
-
-    .altmenu a:hover {
-        background-color: #fff;
-        color: orange;
-    }
-
-    .altmenu {
-        overflow: hidden;
-
-        max-height: 0;
-
-        -webkit-transition: all 0.5s ease-out;
-    }
 
 .kirala {
   background-color: #4CAF50;
@@ -102,4 +33,54 @@ form.example::after {
 
 .kirala:hover {
   background-color: green;
+}
+.search-car-input{
+    height:37px;
+    padding-left: 5px;
+    border: 1px solid #fff;
+}.menu {
+	float:left;
+	background:#777;
+	width:200px;
+	margin-top:10px;
+}
+.menu ul {
+	display:block;
+	margin:0;
+	padding:0
+}
+.menu ul li {
+	list-style:none;
+	display:Block;
+}
+.menu ul li a {
+	color:#fff;
+	text-decoration:none;
+	font-size:12px;
+	font-family: Arial;
+	background:#777;
+	display:Block;
+	padding:20px;
+	border-bottom:1px solid #888
+}
+.menu ul li a:hover {
+	background:#666
+}
+.menu ul li ul {
+	display:none
+}
+.menu ul li:hover ul {
+	display:block;
+}
+.menu ul li ul li a {
+	padding:20px 20px 20px 30px;
+	background:#666;
+    height: 50px;
+    max-height: 0;
+}
+.menu ul li ul li a:hover {
+	background:#555
+}
+.menu ul li:hover > a {
+	background:#666
 }

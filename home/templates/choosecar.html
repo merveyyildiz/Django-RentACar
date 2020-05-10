@@ -11,32 +11,30 @@
     </div>
     {% load static %}
     <div class="row">
-        {% load mptt_tags %}
+
         <div class="col-lg-2">
-            <nav class="nav">
-
-                <ul {% if not node.is_leaf_node %}class="anamenu" {% endif %}>
+            <div class="menu">
+                <ul>
                     {% load mptt_tags %}
+                    {% recursetree category %}
+                        <li>
+                            <a href="/category/{{ node.id }}/{{ node.slug }}">
+                                {{ node.title }} </a>
+<ul>
+                            {% if not node.is_leaf_node %}
 
-                    <li>
-                        {% recursetree category %}
-                            <li>
-                                <a href="/category/{{ node.id }}/{{ node.slug }}">
-                                    {{ node.title }}</a>
-                                {% if not node.is_leaf_node %}
-                                    <ul class="altmenu">
-                                        <li>
-                                            <a href="/category/{{ node.id }}/{{ node.slug }}"> {{ children }}</a>
-                                        </li>
-                                    </ul>
-                                {% endif %}
-                            </li>
-                        {% endrecursetree %}
+                                    <li>
 
+                                        <a href="/category/{{ node.id }}/{{ node.slug }}"> {{ children }} </a>
+                                    </li>
 
-                    </li>
+                            {% endif %}
+                        </ul>
+                        </li>
+                    {% endrecursetree %}
+
                 </ul>
-            </nav>
+            </div>
         </div>
 
         <div class="col-lg-9" style="margin-left:70px">

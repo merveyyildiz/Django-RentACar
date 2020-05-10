@@ -1,39 +1,52 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!-- jQuery UI !-->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script>
+    $(function () {
+        $("#query").autocomplete({
+            source: "/search_auto/",
+            select: function (event, ui) {//item selected
+                AutoCompleteSelectHandler(event, ui)
+            },
+            minLenght: 2,
+        });
+    });
+
+    function AutoCompleteSelectHandler(event, ui) {
+        var selectObj = ui.item;
+    }
+</script>
 {% load static %}
 <div id="book-a-car">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-10">
                 <div class="booka-car-content">
-                    <form action="index3.html">
-                        <div class="pick-location bookinput-item">
-                            <select class="custom-select">
-                                <option selected>Pick Location</option>
-                                <option value="1">Dhaka</option>
-                                <option value="2">Comilla</option>
-                                <option value="3">Barishal</option>
-                                <option value="3">Rangpur</option>
-                            </select>
-                        </div>
 
+
+                    <form class="example" action="/search/" method="post">
                         <div class="pick-date bookinput-item">
-                            <input id="startDate2" placeholder="Pick Date"/>
+                            {% csrf_token %}
+                            <input class="search-car-input" type="text" id="query" name="query" placeholder="Ara..">
+                            {% load mptt_tags %}
                         </div>
-
-                        <div class="retern-date bookinput-item">
-                            <input id="endDate2" placeholder="Return Date"/>
-                        </div>
-
-                        <div class="car-choose bookinput-item">
-                            <select class="custom-select">
-                                <option selected>Choose Car</option>
-                                <option value="1">BMW</option>
-                                <option value="2">Audi</option>
-                                <option value="3">Lexus</option>
+                        <div class="pick-location bookinput-item">
+                            <select name="catid" class="custom-select">
+                                <option value="0">Tüm Kategoriler</option>
+                                {% recursetree category %}
+                                    {% if node.is_leaf_node %}
+                                        <option value="{{ node.id }}">{{ node.title }}</option>{% endif %}
+                                    {% if not node.is_leaf_node %}
+                                        <optgroup label="{{ node.title }}">
+                                            {{ children }}
+                                        </optgroup>
+                                    {% endif %}
+                                {% endrecursetree %}
                             </select>
                         </div>
-
                         <div class="bookcar-btn bookinput-item">
-                            <button type="submit">Book Car</button>
+                            <button type="submit">Ara</button>
                         </div>
                     </form>
                 </div>

@@ -353,7 +353,7 @@ a.slicknav_btn {
 	border-radius: 0;
 	font-size: 14px;
 	height: 45px;
-	width: 100%;
+	width: 120%;
 }
 
 .book-a-car input:focus,
@@ -1559,10 +1559,12 @@ body,
 	border: 1px solid #fff;
 	display: block;
 	float: left;
-	margin-right: 1%;
-	width: 19.2%;
+	margin-right: 2%;
+	margin-left: 2%;
+	width: 22%;
 	-webkit-transition: 0.4s;
 	transition: 0.4s;
+
 }
 
 .bookinput-item:last-child {
@@ -1875,6 +1877,7 @@ body,
 
 #book-a-car {
 	padding-top: 100px;
+	padding-left: 50px;
 }
 
 .booka-car-content {
@@ -1883,7 +1886,7 @@ body,
 	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 	overflow: hidden;
-	padding: 100px 40px;
+	padding: 100px 80px;
 	position: relative;
 	z-index: 1;
 }
@@ -3212,30 +3215,8 @@ body,
   	box-sizing: border-box;
 
 }
-input[type=text], select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
 
-input[type=submit] {
-  width: 100%;
-  background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
-input[type=submit]:hover {
-  background-color: #45a049;
-}
 textarea {
   width: 100%;
   height: 150px;
@@ -3265,16 +3246,6 @@ textarea {
 
 .home2-car-filter li:hover ul{
     display:block;
-}
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: black;
-    color:white;
-    height: 50%;
 }
 
 .update{

@@ -75,6 +75,7 @@ def category_products(request, id, slug):
 
 def product_detail(request, id, slug):
     category = Category.objects.all()
+    setting = Setting.objects.get(pk=1)
     product = Car.objects.get(pk=id)
     images = Images.objects.filter(car_id=id)  # galeri için
     if request.method == 'POST':
@@ -86,7 +87,7 @@ def product_detail(request, id, slug):
             data.save()
             return HttpResponseRedirect("/order/orderproduct/%s" % product.id)
     comments = Comment.objects.filter(car_id=id, status='True')
-    context = {'category': category, 'product': product, 'images': images, 'comments': comments}
+    context = {'category': category, 'product': product, 'images': images, 'comments': comments,'setting':setting}
     return render(request, 'car_detail.html', context)
 
 
@@ -97,8 +98,12 @@ def product_search(request):  # ana urls.py den çağırılıyor
         if form.is_valid():  # form geçerli ise
             category = Category.objects.all()
             query = form.cleaned_data['query']  # bilgiyi al
-            product = Car.objects.filter(
-                title__icontains=query)  # contains içermek başına i yazarsak büyük küçük harf farketmez
+            catid =form.cleaned_data['catid'] #kategoriyi al
+            if catid == 0 :
+                product = Car.objects.filter(title__icontains=query)  # contains içermek başına i yazarsak büyük küçük harf farketmez
+            else:
+                product = Car.objects.filter(
+                    title__icontains=query, category=catid)
             context = {'product': product, 'category': category}  # setting ve form iletişim sayfasına göndereceğiz
             return render(request, 'car_search.html', context)
     return HttpResponseRedirect('/')
@@ -137,11 +142,13 @@ def login_view(request):
             messages.error(request, "Login Hatası. Kullanıcı adı veya şifre yanlış")
             return HttpResponseRedirect('/login')
     category = Category.objects.all()
-    context = {'category': category}
+    setting = Setting.objects.get(pk=1)
+    context = {'category': category,'setting':setting}
     return render(request, 'login.html', context)
 
 
 def signup_view(request):
+    setting = Setting.objects.get(pk=1)
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -157,7 +164,7 @@ def signup_view(request):
             return HttpResponseRedirect('/signup')
     form = SignUpForm()
     category = Category.objects.all()
-    context = {'category': category, 'form': form}
+    context = {'category': category, 'form': form,'setting':setting}
     return render(request, 'signup.html', context)
 
 
@@ -165,6 +172,7 @@ def signup_view(request):
 def orderproduct(request, id):
     url = request.META.get("HTTP_REFERER")  # gelinen url
     category = Category.objects.all()
+    setting = Setting.objects.get(pk=1)
     current_user = request.user
     product = Car.objects.get(id=id)
     total = Calculate.objects.all().order_by('-id')[0].day * product.price
@@ -204,6 +212,7 @@ def orderproduct(request, id):
     context = {'category': category,
                'total': total,
                'form': form,
-               'profile': profile
+               'profile': profile,
+               'setting':setting
                }
     return render(request, 'Order_Form.html', context)
