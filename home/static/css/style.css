@@ -2196,7 +2196,6 @@ body,
 }
 
 /*== Car List CSS ==*/
-
 .single-car-wrap {
 	-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
@@ -2208,30 +2207,12 @@ body,
 .single-car-wrap:last-child {
 	margin-bottom: 0;
 }
-
-.car-thumb-1 {
-	background-image: url(assets/img/car/car-1.jpg);
-}
-
-.car-thumb-2 {
-	background-image: url(assets/img/car/car-2.jpg);
-}
-
-.car-thumb-3 {
-	background-image: url(assets/img/car/car-3.jpg);
-}
-
-.car-thumb-4 {
-	background-image: url(assets/img/car/car-4.jpg);
-}
-
 .car-list-thumb {
 	background-size: cover;
 	background-position: center center;
 	height: 300px;
 	max-height: 100%;
 }
-
 .car-list-info {
 	padding-right: 10px;
 	position: relative;
