@@ -67,16 +67,17 @@ def iletisim(request):  # ana urls.py den çağırılıyor
 
 def category_products(request, id, slug):
     category = Category.objects.all()
+    setting = Setting.objects.get(pk=1)
     categorydata = Category.objects.get(pk=id)
     products = Car.objects.filter(category_id=id)
-    context = {'products': products, 'category': category, 'categorydata': categorydata}
+    context = {'products': products, 'category': category, 'categorydata': categorydata,'setting': setting}
     return render(request, 'car.html', context)
 
 
 def product_detail(request, id, slug):
     category = Category.objects.all()
-    setting = Setting.objects.get(pk=1)
     product = Car.objects.get(pk=id)
+    setting = Setting.objects.get(pk=1)
     images = Images.objects.filter(car_id=id)  # galeri için
     if request.method == 'POST':
         form = CalculateForm(request.POST)
@@ -93,18 +94,15 @@ def product_detail(request, id, slug):
 
 def product_search(request):  # ana urls.py den çağırılıyor
     # kaydetme şekli
+    setting = Setting.objects.get(pk=1)
     if request.method == 'POST':  # form post edildiyse
         form = SearchForm(request.POST)
         if form.is_valid():  # form geçerli ise
             category = Category.objects.all()
             query = form.cleaned_data['query']  # bilgiyi al
-            catid =form.cleaned_data['catid'] #kategoriyi al
-            if catid == 0 :
-                product = Car.objects.filter(title__icontains=query)  # contains içermek başına i yazarsak büyük küçük harf farketmez
-            else:
-                product = Car.objects.filter(
-                    title__icontains=query, category=catid)
-            context = {'product': product, 'category': category}  # setting ve form iletişim sayfasına göndereceğiz
+            product = Car.objects.filter(
+                title__icontains=query)  # contains içermek başına i yazarsak büyük küçük harf farketmez
+            context = {'product': product, 'category': category,'setting': setting}  # setting ve form iletişim sayfasına göndereceğiz
             return render(request, 'car_search.html', context)
     return HttpResponseRedirect('/')
 
@@ -143,12 +141,11 @@ def login_view(request):
             return HttpResponseRedirect('/login')
     category = Category.objects.all()
     setting = Setting.objects.get(pk=1)
-    context = {'category': category,'setting':setting}
+    context = {'category': category,'setting': setting}
     return render(request, 'login.html', context)
 
 
 def signup_view(request):
-    setting = Setting.objects.get(pk=1)
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -164,7 +161,8 @@ def signup_view(request):
             return HttpResponseRedirect('/signup')
     form = SignUpForm()
     category = Category.objects.all()
-    context = {'category': category, 'form': form,'setting':setting}
+    setting = Setting.objects.get(pk=1)
+    context = {'category': category, 'form': form,'setting': setting}
     return render(request, 'signup.html', context)
 
 
@@ -213,6 +211,6 @@ def orderproduct(request, id):
                'total': total,
                'form': form,
                'profile': profile,
-               'setting':setting
+               'setting': setting
                }
     return render(request, 'Order_Form.html', context)

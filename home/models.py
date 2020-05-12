@@ -27,8 +27,8 @@ class Setting(models.Model):
     smtpport = models.CharField(blank=True, max_length=5)
     icon = models.ImageField(blank=True, upload_to='images/')  # blank true boş bırakabilir sağlıyor
     facebook = models.CharField(blank=True, max_length=50)
-    instagram = models.CharField(blank=True, max_length=50)
-    twitter = models.CharField(blank=True, max_length=50)
+    linkedin = models.CharField(blank=True, max_length=50)
+    github = models.CharField(blank=True, max_length=50)
     abotus = RichTextUploadingField(blank=True)
     contact = RichTextUploadingField(blank=True)
     references = RichTextUploadingField(blank=True)

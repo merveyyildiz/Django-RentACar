@@ -1,11 +1,12 @@
-{% extends "homebase.html" %}
+{% extends "Homebase.html" %}
 {% block title %} {{ product.title }} {% endblock %}
 {% block keywords %} {{ product.key }} {% endblock %}
 {% block description %} {{ product.description }}{% endblock %}
-{% block head%}
+{% block head %}
     <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">
 {% endblock %}
-{% block body%}
+{% block body %}
+
     {% load static %}
     <div style="background-image: url('{% static 'img/page-title.jpg' %}');background-position: center center;
             background-size: cover;padding-top: 20px;">
@@ -44,7 +45,7 @@
                 <div class="col-lg-8">
                     <div class="car-details-content">
                         <h2>{{ product.title }} <span class="price">Rent: <b>{{ product.price }} </b></span></h2>
-                          <div class="car-preview-crousel"><!-- javascript-->
+                        <div class="car-preview-crousel">
                             <div class="single-car-preview">
                                 <img src="{{ product.image.url }} " style="height:400px" alt="JSOFT">
                             </div>
@@ -188,7 +189,7 @@
                             <h3>For More Informations</h3>
 
                             <div class="sidebar-body">
-                                <p><i class="fa fa-mobile"></i> +8801816 277 243</p>
+                                <p><i class="fa fa-mobile"></i> {{ setting.phone }}</p>
                                 <p><i class="fa fa-clock-o"></i> Mon - Sat 8.00 - 18.00</p>
                             </div>
                         </div>

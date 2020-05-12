@@ -14,15 +14,16 @@ from user.forms import UserUpdateForm, ProfileUpdateForm
 @login_required(login_url='/login')  # check login
 def index(request):
     category = Category.objects.all()
-    current_user = request.user
     setting = Setting.objects.get(pk=1)
+    current_user = request.user
     profile = UserProfile.objects.get(user_id=current_user.id)
-    context = {'category': category, 'profile': profile,'setting':setting}
+    context = {'category': category, 'profile': profile,'setting': setting}
     return render(request, 'user_profile.html', context)
 
 
 @login_required(login_url='/login')  # check login
 def user_update(request):
+    setting = Setting.objects.get(pk=1)
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)  # user ile ilişki kur
         profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.userprofile)
@@ -35,24 +36,23 @@ def user_update(request):
     else:
         category = Category.objects.all()
         current_user = request.user
-        setting = Setting.objects.get(pk=1)
         user_form = UserUpdateForm(instance=request.user)
         profile_form = ProfileUpdateForm(
             instance=request.user.userprofile)  # user ile userprofile onetoone ilişkisi kuruyor
 
         context = {
-            'category': category, 'user_form': user_form, 'profile_form': profile_form,'setting':setting
+            'category': category, 'user_form': user_form, 'profile_form': profile_form,'setting': setting
         }
         return render(request, 'user_update.html', context)
 
 
 @login_required(login_url='/login')  # check login
 def orders(request):
-    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
+    setting = Setting.objects.get(pk=1)
     current_user = request.user
     orders = Order.objects.filter(user_id=current_user)
-    context = {'category': category, 'orders': orders,'setting':setting}
+    context = {'category': category, 'orders': orders,'setting': setting}
     return render(request, 'user_orders.html', context)
 
 
@@ -63,7 +63,7 @@ def orderdetail(request, id):
     current_user = request.user
     order = Order.objects.get(user_id=current_user.id, id=id)#güvenlik için glen id ile user id eşitmi bakıyoruz
     car = Car.objects.get(pk=order.car_id)
-    context = {'category': category, 'order': order, 'car': car,'setting':setting}
+    context = {'category': category, 'order': order, 'car': car,'setting': setting}
     return render(request, 'user_order_detail.html', context)
 
 
@@ -82,9 +82,10 @@ def change_password(request):
             return HttpResponseRedirect("/user/password")
     else:
         category = Category.objects.all()
+        setting = Setting.objects.get(pk=1)
         form = PasswordChangeForm(request.user)  # bu model zaten djangoda var biz oluşturmuyotuz
         return render(request, "change_password.html", {
-            'form': form, 'category': category
+            'form': form, 'category': category,'setting': setting
         })
 
 
@@ -95,7 +96,7 @@ def comments(request):
     current_user = request.user
     comments = Comment.objects.filter(user_id=current_user.id)
     context = {
-        'category': category, 'comments': comments,'setting':setting
+        'category': category, 'comments': comments,'setting': setting
     }
     return render(request, "user_comments.html", context)
 
