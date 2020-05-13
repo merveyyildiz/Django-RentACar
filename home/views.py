@@ -17,9 +17,9 @@ def index(request):  # home daki urls.py den çağrılıyor
     setting = Setting.objects.get(pk=1)
     sliderdata = Car.objects.all()[:4]  # ilk dört veriyi al
     category = Category.objects.all()  # tüm kategor alıyruz
-    dayproducts = Car.objects.all()[:3]
-    lastproducts = Car.objects.all().order_by('-id')[:3]
-    randomproducts = Car.objects.all().order_by('?')[:4]
+    dayproducts = Car.objects.filter(status="True")[:3]
+    lastproducts = Car.objects.filter(status="True").order_by('-id')[:3]
+    randomproducts = Car.objects.filter(status="True").order_by('?')[:4]
     context = {'setting': setting, 'page': 'home', 'sliderdata': sliderdata,
                'category': category,
                'dayproducts': dayproducts,
@@ -69,7 +69,7 @@ def category_products(request, id, slug):
     category = Category.objects.all()
     setting = Setting.objects.get(pk=1)
     categorydata = Category.objects.get(pk=id)
-    products = Car.objects.filter(category_id=id)
+    products = Car.objects.filter(category_id=id,status="True")
     context = {'products': products, 'category': category, 'categorydata': categorydata,'setting': setting}
     return render(request, 'car.html', context)
 
@@ -154,6 +154,13 @@ def signup_view(request):
             password = form.cleaned_data.get('password1')
             user = authenticate(request, username=username, password=password)
             login(request, user)
+            current_user=request.user
+            data=UserProfile()
+            data.user_id=current_user.id
+            data.image="images/user.jpg"
+            data.phone=123456789
+            data.save()
+            messages.success(request, "Sisteme başarılı bir şekilde kaydoldunuz")
             return HttpResponseRedirect('/')
 
         else:
