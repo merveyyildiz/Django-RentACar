@@ -162,3 +162,19 @@ class OrderProduct(models.Model):
 
     def __str__(self):
         return self.product.title
+
+class Faq(models.Model): #sıkça sorulan sorular için model
+    STATUS = (
+        ('True', 'Evet'),
+        ('False', 'Hayır'),
+    )
+    ordernmbr = models.IntegerField()
+    question = models.CharField(max_length=150)
+    answer = models.TextField()
+    status = models.CharField(max_length=10, choices=STATUS)
+    create_at = models.DateTimeField(auto_now_add=True)  # oluşturulma zmanını tutar
+    update_At = models.DateTimeField(auto_now=True)
+
+    def __str__(self):  # adı gözüksün return ettiğinde
+        return self.question
+

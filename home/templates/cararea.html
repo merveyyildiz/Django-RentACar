@@ -21,13 +21,13 @@
             <div class="col-lg-12">
                 <div class="booka-car-content">
                     <form class="example1" action="/search/" method="post">
-                        <div class="pick-date bookinput-item">
+                        <div class="pick-date bookinput-itemm">
                             {% csrf_token %}
-                            <input class="search-car-input" type="text" id="query" name="query" placeholder="Ara..">
+                            <input class="search-car-inputt" type="text" id="query" name="query" placeholder="Ara..">
                             {% load mptt_tags %}
                         </div>
                         <div class="pick-location bookinput-item">
-                            <select name="catid" class="custom-select">
+                            <select name="catid" class="custom-selectt">
                                 <option value="0">Tüm Kategoriler</option>
                                 {% recursetree category %}
                                     {% if node.is_leaf_node %}
@@ -40,8 +40,8 @@
                                 {% endrecursetree %}
                             </select>
                         </div>
-                        <div class="bookcar-btn bookinput-item">
-                            <button type="submit">Ara</button>
+                        <div style="margin-left: 24%; width: 150px;height: 40px">
+                            <button class="kirala" type="submit">Ara</button>
                         </div>
                     </form>
                 </div>

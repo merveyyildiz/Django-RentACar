@@ -8,7 +8,7 @@ import json
 from django.utils.crypto import get_random_string
 # Create your views here.
 from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile, OrderForm, Order, OrderProduct, \
-    CalculateForm, Calculate
+    CalculateForm, Calculate, Faq
 from product.models import Car, Category, Images, Comment
 from home.forms import SearchForm, SignUpForm
 
@@ -214,3 +214,10 @@ def orderproduct(request, id):
                'setting': setting
                }
     return render(request, 'Order_Form.html', context)
+
+def faq(request):
+    category = Category.objects.all()
+    setting = Setting.objects.get(pk=1)
+    faq=Faq.objects.all().order_by('ordernmbr')
+    context = {'category': category, 'setting': setting,'faq': faq}
+    return render(request, 'faq.html', context)

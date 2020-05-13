@@ -1,0 +1,41 @@
+{% extends "homebase.html" %}
+{% block title %} Sıkça Sorulan Sorular{% endblock %}
+{% block keywords %} {{ setting.key }} {% endblock %}
+{% block description %} {{ setting.description }}{% endblock %}
+{% block head %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}">
+
+
+
+{% endblock %}
+
+{% block body %}
+    {% load static %}
+
+    <section id="about-area" class="section-padding">
+
+        <div class="container" style="margin-top:140px">
+
+            <div class="row">
+
+                <div class="col-lg-9">
+                    <div class="about-content">
+                        <h3 style="margin: 20px 0px 10px 0px">Sıkça Sorulan Sorular</h3>
+                        <div id="accordion">
+                            {% for rs in faq %}
+                                <h3>{{ rs.question }}</h3>
+                                <div>
+                                <p>{{ rs.answer }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -48,6 +48,7 @@
                         <h2>ILETISIME GECIN</h2>
                         <div class="widget-body">
                             <ul class="get-touch">
+                                <li><a href="/sss">Sıkça Sorulan Sorular</a></li>
                                 <li><i class="fa fa-map-marker"></i> {{ setting.address }}</li>
                                 <li><i class="fa fa-mobile"></i> {{ setting.phone }}</li>
                                 <li><i class="fa fa-envelope"></i> {{ setting.email }}</li>
@@ -114,3 +115,8 @@
 
 <!--=== Mian Js ===-->
 <script src="{% static 'js/main.js' %}"></script>
+  <script>
+        $(function () {
+            $("#accordion").accordion();
+        });
+  </script>

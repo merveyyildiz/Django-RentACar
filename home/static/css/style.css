@@ -1883,7 +1883,7 @@ body,
 	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 	overflow: hidden;
-	padding: 100px 50px;
+	padding: 100px 190px;
 	position: relative;
 	z-index: 1;
 }
@@ -1892,6 +1892,7 @@ body,
 .booka-car-content select {
 	border: 1px solid #ffd000;
 	width: 100%;
+	margin-left: 3%;
 }
 
 .booka-car-content input:focus,
