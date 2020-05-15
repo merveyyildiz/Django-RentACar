@@ -3,7 +3,8 @@ from django.contrib.auth import logout, authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-
+import logging
+logger = logging.getLogger(__name__)
 import json
 from django.utils.crypto import get_random_string
 # Create your views here.
@@ -69,8 +70,8 @@ def category_products(request, id, slug):
     category = Category.objects.all()
     setting = Setting.objects.get(pk=1)
     categorydata = Category.objects.get(pk=id)
-    products = Car.objects.filter(category_id=id,status="True")
-    context = {'products': products, 'category': category, 'categorydata': categorydata,'setting': setting}
+    products = Car.objects.filter(category_id=id, status="True")
+    context = {'products': products, 'category': category, 'categorydata': categorydata, 'setting': setting}
     return render(request, 'car.html', context)
 
 
@@ -83,12 +84,17 @@ def product_detail(request, id, slug):
         form = CalculateForm(request.POST)
         if form.is_valid():  # form geçerli ise
             data = Calculate()
-            data.date_buy = form.cleaned_data['date_buy']
-            data.day = form.cleaned_data['day']
+            date_start=(form.cleaned_data['date_start']).date()
+            date_end=(form.cleaned_data['date_end']).date()
+            day=(date_end-date_start).days
+            logger.info("The value of var is %s", day)
+            data.date_start = date_start
+            data.date_end =date_end
+            data.day = day
             data.save()
             return HttpResponseRedirect("/order/orderproduct/%s" % product.id)
     comments = Comment.objects.filter(car_id=id, status='True')
-    context = {'category': category, 'product': product, 'images': images, 'comments': comments,'setting':setting}
+    context = {'category': category, 'product': product, 'images': images, 'comments': comments, 'setting': setting}
     return render(request, 'car_detail.html', context)
 
 
@@ -102,7 +108,8 @@ def product_search(request):  # ana urls.py den çağırılıyor
             query = form.cleaned_data['query']  # bilgiyi al
             product = Car.objects.filter(
                 title__icontains=query)  # contains içermek başına i yazarsak büyük küçük harf farketmez
-            context = {'product': product, 'category': category,'setting': setting}  # setting ve form iletişim sayfasına göndereceğiz
+            context = {'product': product, 'category': category,
+                       'setting': setting}  # setting ve form iletişim sayfasına göndereceğiz
             return render(request, 'car_search.html', context)
     return HttpResponseRedirect('/')
 
@@ -141,7 +148,7 @@ def login_view(request):
             return HttpResponseRedirect('/login')
     category = Category.objects.all()
     setting = Setting.objects.get(pk=1)
-    context = {'category': category,'setting': setting}
+    context = {'category': category, 'setting': setting}
     return render(request, 'login.html', context)
 
 
@@ -154,11 +161,11 @@ def signup_view(request):
             password = form.cleaned_data.get('password1')
             user = authenticate(request, username=username, password=password)
             login(request, user)
-            current_user=request.user
-            data=UserProfile()
-            data.user_id=current_user.id
-            data.image="images/user.jpg"
-            data.phone=123456789
+            current_user = request.user
+            data = UserProfile()
+            data.user_id = current_user.id
+            data.image = "images/user.jpg"
+            data.phone = 123456789
             data.save()
             messages.success(request, "Sisteme başarılı bir şekilde kaydoldunuz")
             return HttpResponseRedirect('/')
@@ -169,7 +176,7 @@ def signup_view(request):
     form = SignUpForm()
     category = Category.objects.all()
     setting = Setting.objects.get(pk=1)
-    context = {'category': category, 'form': form,'setting': setting}
+    context = {'category': category, 'form': form, 'setting': setting}
     return render(request, 'signup.html', context)
 
 
@@ -189,12 +196,13 @@ def orderproduct(request, id):
             data.last_name = form.cleaned_data['last_name']  # formdan veriyi getiriyor
             data.city = form.cleaned_data['city']  # formdan veriyi getiriyor
             data.phone = form.cleaned_data['phone']  # formdan veriyi getiriyor
-            data.date_buy =Calculate.objects.all().order_by('-id')[0].date_buy
+            data.date_start = Calculate.objects.all().order_by('-id')[0].date_start
+            data.date_end = Calculate.objects.all().order_by('-id')[0].date_end
             data.quatity = Calculate.objects.all().order_by('-id')[0].day
             data.address = form.cleaned_data['address']
             data.country = form.cleaned_data['country']
             data.user_id = current_user.id
-            data.car_id=id
+            data.car_id = id
             data.total = total
             data.ip = request.META.get('REMOTE_ADDR')
             ordercode = get_random_string(5).upper()
@@ -206,7 +214,7 @@ def orderproduct(request, id):
             product.amount = product.amount - 1
             product.save()
 
-            messages.success(request, "Rezervasyonunuz Yapıldı\nCode %s" %ordercode)
+            messages.success(request, "Rezervasyonunuz Yapıldı\nCode %s" % ordercode)
             return HttpResponseRedirect(url)
             # return HttpResponseRedirect("/")
         else:
@@ -222,9 +230,11 @@ def orderproduct(request, id):
                }
     return render(request, 'Order_Form.html', context)
 
+
 def faq(request):
     category = Category.objects.all()
     setting = Setting.objects.get(pk=1)
-    faq=Faq.objects.all().order_by('ordernmbr')
-    context = {'category': category, 'setting': setting,'faq': faq}
+    faq = Faq.objects.all().order_by('ordernmbr')
+    context = {'category': category, 'setting': setting, 'faq': faq}
     return render(request, 'faq.html', context)
+

@@ -63,13 +63,15 @@ class ContactFormMessage(models.Model):
 class ContactFormu(ModelForm):
     class Meta:
         model = ContactFormMessage
-        fields = ['name', 'email', 'subject', 'message'] #bu alanların doldurulmasını istiyoruz
+        fields = ['name', 'email', 'subject', 'message']  # bu alanların doldurulmasını istiyoruz
         widgets = {
             'name': TextInput(attrs={'class': 'name-input', 'placeholder': 'Name & Surname'}),
             'subject': TextInput(attrs={'class': 'subject-input', 'placeholder': 'Subject'}),
             'email': TextInput(attrs={'class': 'email-input', 'placeholder': 'Enter Email'}),
             'message': Textarea(attrs={'class': 'textarea', 'placeholder': 'Your message', 'rows': '5'}),
         }
+
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.IntegerField(blank=True)
@@ -82,7 +84,7 @@ class UserProfile(models.Model):
         return self.user.username
 
     def user_name(self):
-        return  self.user.first_name + " " + self.user.last_name + " " + '[' + self.user.username + ']'
+        return self.user.first_name + " " + self.user.last_name + " " + '[' + self.user.username + ']'
 
     def image_tag(self):  # bu fonskiyonu admin kısmında resimler gözüksün diye yazıyoruz ve bu fonk artık çağıracağız
         return mark_safe('<img src= "{}" height="50"/>'.format(
@@ -90,10 +92,12 @@ class UserProfile(models.Model):
 
     image_tag.short_description = 'Image'
 
+
 class UserProfileFormu(ModelForm):
     class Meta:
         model = UserProfile
         fields = ['phone', 'address', 'city', 'county', 'image']
+
 
 class Order(models.Model):
     STATUS = (
@@ -106,18 +110,19 @@ class Order(models.Model):
     )
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    code = models.CharField(max_length=10, editable=False)    # üye olmayanlar bu ko ile siparişini takip edecek
+    code = models.CharField(max_length=10, editable=False)  # üye olmayanlar bu ko ile siparişini takip edecek
     first_name = models.CharField(max_length=10)
     last_name = models.CharField(max_length=10)
     phone = models.CharField(blank=True, max_length=20)
     address = models.CharField(blank=True, max_length=150)
     city = models.CharField(blank=True, max_length=20)
     country = models.CharField(max_length=20, blank=True)
-    date_buy = models.CharField(max_length=10)
-    total = models.FloatField()
-    quatity = models.IntegerField()
-    car_id=models.IntegerField()
-    status = models.CharField(max_length=10, choices=STATUS,default='New')
+    date_start = models.CharField(max_length=30)
+    date_end = models.CharField(max_length=30)
+    quatity =models.CharField(max_length=30)
+    car_id = models.IntegerField()
+    total =models.CharField(max_length=30)
+    status = models.CharField(max_length=10, choices=STATUS, default='New')
     ip = models.CharField(blank=True, max_length=20)
     adminnote = models.CharField(blank=True, max_length=100)
     create_at = models.DateTimeField(auto_now_add=True)
@@ -130,19 +135,23 @@ class Order(models.Model):
 class OrderForm(ModelForm):
     class Meta:
         model = Order
-        fields = ['first_name', 'last_name', 'address', 'phone', 'city', 'country', ]
+        fields = ['first_name', 'last_name', 'address', 'city','phone', 'country']
+
 
 class Calculate(models.Model):
-    date_buy = models.CharField(max_length=10)
-    day = models.FloatField()
+    date_start = models.DateTimeField()
+    date_end = models.DateTimeField()
+    day = models.IntegerField()
 
     def __str__(self):
         return self.day
 
+
 class CalculateForm(ModelForm):
     class Meta:
-        model= Calculate
-        fields = ['date_buy',"day"]
+        model = Calculate
+        fields = ['date_start', 'date_end']
+
 
 class OrderProduct(models.Model):
     STATUS = (
@@ -163,7 +172,8 @@ class OrderProduct(models.Model):
     def __str__(self):
         return self.product.title
 
-class Faq(models.Model): #sıkça sorulan sorular için model
+
+class Faq(models.Model):  # sıkça sorulan sorular için model
     STATUS = (
         ('True', 'Evet'),
         ('False', 'Hayır'),
@@ -177,4 +187,3 @@ class Faq(models.Model): #sıkça sorulan sorular için model
 
     def __str__(self):  # adı gözüksün return ettiğinde
         return self.question
-

@@ -12,7 +12,7 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-6">
+ <div class="col-lg-6">
                     <h3 style="margin: 20px 0px 10px 0px">DETAY</h3>
                     {% if messages %}
                         {% for message in messages %}
@@ -23,6 +23,7 @@
                     {% endif %}
 
                     <form action="" method="post">
+
                         {% csrf_token %} <!--  saldırılardan korur-->
                         <p><label for="id_first_name">Ad</label>
                             <input type="text" name="first_name" value="{{ user.first_name }}" class="name-input"
@@ -47,15 +48,23 @@
                             </select>
                         <p><label for="id_country">Ülke</label>
                             <input type="text" name="country" value="{{ profile.county }}" class="name-input"
-                                   maxlength="20" id="id_country">
+                                   maxlength="20" id="id_country"></p>
+                            <!--
+                            <input  name="date_start" value="{{ date_start }}">
 
-                            <button class="kirala">Kirala</button>
+                            <input   name="date_end" value="{{ date_end }}">
+
+                            <input  name="quatity" value="{{ quatity }}"
+                            >
+                            <input   name="car_id" value="{{ car_id }}"
+                            >-->
+                               <button class="kirala">Kirala</button>
+                    </div>
                     </form>
-                </div>
                 <div class="col-lg-6">
                     <h3 style="margin: 20px 0px 10px 0px">Kart Bilgileri</h3>
-                    <p><label for="id_firs_name">Total:</label>
-                        <input type="text" name="total" readonly value="${{ total }}" class="name-input">
+                    <p><label for="id_total">Ücret:</label>
+                        <input type="text" name="total" readonly value="{{ total }}" class="name-input">
                     <p><label for="id_firs_name">Kartın Üstündeki İsim</label>
                         <input type="text" name="number" value="" class="name-input" maxlength="16">
                     <p><label for="id_firs_name">Kart Numarası</label>
@@ -65,6 +74,9 @@
                     <p><label for="id_firs_name">CV2</label>
                         <input type="text" name="expdate" value="" class="name-input">
                 </div>
+
+
+
             </div>
         </div>
         </div>

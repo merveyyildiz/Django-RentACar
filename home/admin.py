@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from home.models import Setting, ContactFormMessage, UserProfile, OrderProduct, Order, Faq
+from home.models import Setting, ContactFormMessage, UserProfile, OrderProduct, Order, Faq, Calculate
 
 
 class ContactFromMessageAdmin(admin.ModelAdmin):
@@ -23,7 +23,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = ['first_name', 'last_name', 'phone', 'city', 'total', 'status','car_id']
     list_filter = ['status']
     readonly_fields = ('user', 'address', 'city', 'country', 'phone', 'first_name', 'ip',
-                       'total','date_buy','quatity','car_id')  # sadece okunabiliyor bu bilgiler değiştirilemez
+                       'total','date_start','date_end','quatity','car_id')  # sadece okunabiliyor bu bilgiler değiştirilemez
     can_delete = False  # silinmesin
     inlines = [OrderProductline]  # aynı satırda gözükmesi için
 
@@ -36,9 +36,13 @@ class FaqAdmin(admin.ModelAdmin):
     list_display = ['ordernmbr','question', 'answer', 'status']
     list_filter = ['status']
 
+class CalculateAdmin(admin.ModelAdmin):
+    list_display = ['date_start','date_end', 'day']
+    list_filter = ['day']
 admin.site.register(Order,OrderAdmin)
 admin.site.register(OrderProduct,OrderProductAdmin)
 admin.site.register(ContactFormMessage, ContactFromMessageAdmin)
 admin.site.register(Setting)
 admin.site.register(UserProfile,UserProfileAdmin)
 admin.site.register(Faq,FaqAdmin)
+admin.site.register(Calculate,CalculateAdmin)

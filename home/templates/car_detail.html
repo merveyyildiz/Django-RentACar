@@ -8,7 +8,7 @@
 {% block body %}
 
     {% load static %}
-    <div style="background-image: url('{% static 'img/page-title.jpg' %}');background-position: center center;
+    <div style="background-image: url('https://thenypost.files.wordpress.com/2019/07/blackout.jpg?quality=80&strip=all&w=618&h=410&crop=1');background-position: center center;
             background-size: cover;padding-top: 20px;">
         <section id="page-title-area" class="section-padding overlay">
 
@@ -102,13 +102,13 @@
                                     </div>
                                     <form action="" method="POST">
                                         {% csrf_token %} <!--  saldırılardan korur-->
-                                        <p><label for="id_date_buy">Kiralayacağınız Tarih</label>
-                                            <input type="date" name="date_buy" value="date_buy"
+                                        <p><label for="id_date_start">Kiralayacağınız Tarih</label>
+                                            <input type="date" name="date_start" value="date_start"
                                                    maxlength="8">
-                                        <p><label for="id_day">Kaç gün</label>
-                                            <input type="number" name="day" value="day" class="name-number"
-                                                   style="margin-left: 88px"
-                                                   maxlength="2"><br>
+                                        <p><label for="id_date_end">Bırakacağınız Tarih</label>
+                                            <input type="date" name="date_end" value="date_end"
+                                                   maxlength="8"><br>
+
                                             <button type="submit"
                                                     style="width: 300px;background-color:green; height: 50px;color: white">
                                                 Kirala
