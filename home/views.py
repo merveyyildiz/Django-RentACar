@@ -162,7 +162,7 @@ def signup_view(request):
             user = authenticate(request, username=username, password=password)
             login(request, user)
             current_user = request.user
-            data = UserProfile()
+            data = UserProfile() #kişi kayıt olduğunda otomatik profile oluşturmak için
             data.user_id = current_user.id
             data.image = "images/user.jpg"
             data.phone = 123456789
@@ -181,7 +181,7 @@ def signup_view(request):
 
 
 @login_required(login_url='/login')  # check login
-def orderproduct(request, id):
+def orderproduct(request, id):#rezervasyon
     url = request.META.get("HTTP_REFERER")  # gelinen url
     category = Category.objects.all()
     setting = Setting.objects.get(pk=1)
@@ -231,7 +231,7 @@ def orderproduct(request, id):
     return render(request, 'Order_Form.html', context)
 
 
-def faq(request):
+def faq(request):#sss
     category = Category.objects.all()
     setting = Setting.objects.get(pk=1)
     faq = Faq.objects.all().order_by('ordernmbr')

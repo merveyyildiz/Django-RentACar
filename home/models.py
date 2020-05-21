@@ -135,7 +135,7 @@ class Order(models.Model):
 class OrderForm(ModelForm):
     class Meta:
         model = Order
-        fields = ['first_name', 'last_name', 'address', 'city','phone', 'country']
+        fields = ['first_name', 'last_name', 'address', 'city','phone', 'country'] #hangi alanları html de çağıracaksak bunları belirtiyoruz
 
 
 class Calculate(models.Model):
@@ -150,7 +150,7 @@ class Calculate(models.Model):
 class CalculateForm(ModelForm):
     class Meta:
         model = Calculate
-        fields = ['date_start', 'date_end']
+        fields = ['date_start', 'date_end'] #hangi alanları html de çağıracaksak bunları belirtiyoruz
 
 
 class OrderProduct(models.Model):

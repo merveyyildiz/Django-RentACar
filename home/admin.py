@@ -39,6 +39,7 @@ class FaqAdmin(admin.ModelAdmin):
 class CalculateAdmin(admin.ModelAdmin):
     list_display = ['date_start','date_end', 'day']
     list_filter = ['day']
+    readonly_fields = ('date_start', 'date_end', 'day')
 admin.site.register(Order,OrderAdmin)
 admin.site.register(OrderProduct,OrderProductAdmin)
 admin.site.register(ContactFormMessage, ContactFromMessageAdmin)

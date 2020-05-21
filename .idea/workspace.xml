@@ -2,25 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03ebfe3b-77b5-4a28-b849-fb958c71b1c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/home/migrations/0014_auto_20200515_0218.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0015_auto_20200515_0225.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0016_auto_20200515_0511.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0017_auto_20200515_0513.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0018_auto_20200515_0534.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0019_auto_20200515_0536.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0020_auto_20200515_1457.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0021_auto_20200515_1529.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/home/migrations/0022_auto_20200515_1606.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/carsanic2_8rFhe9m_scmPp9A.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/clio3_8oDgYwC_NmeWQIK.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/dokkeric_Y9wYRVN.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/mersedesc120-ic_0kwk9Gp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/mini_cooper_EsADNwY_Av1gbhi.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/car.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/car.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/car_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/car_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/order_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/order_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/slider.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/cararea.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/cararea.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/choosecar.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/choosecar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +171,11 @@
       <workItem from="1589384851551" duration="3943000" />
       <workItem from="1589401702132" duration="2056000" />
       <workItem from="1589487146416" duration="20113000" />
-      <workItem from="1589543066724" duration="6264000" />
+      <workItem from="1589543066724" duration="7529000" />
+      <workItem from="1589553030860" duration="2169000" />
+      <workItem from="1589578102200" duration="2208000" />
+      <workItem from="1589998828226" duration="3266000" />
+      <workItem from="1590066649622" duration="2017000" />
     </task>
     <task id="LOCAL-00001" summary="Kategori Ürünlerini Gösterme">
       <created>1586635704170</created>
