@@ -213,7 +213,7 @@ def orderproduct(request, id):#rezervasyon
             orderproduct.user_id = current_user.id
             product.amount = product.amount - 1
             product.save()
-
+            Calculate.objects.all().order_by('-id')[0].delete()
             messages.success(request, "Rezervasyonunuz Yapıldı\nCode %s" % ordercode)
             return HttpResponseRedirect(url)
             # return HttpResponseRedirect("/")

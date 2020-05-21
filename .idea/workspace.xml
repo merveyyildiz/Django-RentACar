@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03ebfe3b-77b5-4a28-b849-fb958c71b1c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/uploads/images/carsanic2_8rFhe9m_scmPp9A.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/clio3_8oDgYwC_NmeWQIK.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/dokkeric_Y9wYRVN.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mersedesc120-ic_0kwk9Gp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/mini_cooper_EsADNwY_Av1gbhi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0023_auto_20200521_1650.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0024_auto_20200521_1651.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/car.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/car.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/car_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/car_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/cararea.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/cararea.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/choosecar.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/choosecar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -175,7 +165,7 @@
       <workItem from="1589553030860" duration="2169000" />
       <workItem from="1589578102200" duration="2208000" />
       <workItem from="1589998828226" duration="3266000" />
-      <workItem from="1590066649622" duration="2017000" />
+      <workItem from="1590066649622" duration="2654000" />
     </task>
     <task id="LOCAL-00001" summary="Kategori Ürünlerini Gösterme">
       <created>1586635704170</created>
